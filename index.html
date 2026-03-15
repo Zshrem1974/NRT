@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NRT V4.0 — Account Retention Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111111;
+  --black-mid:#1a1a1a;
+  --red:#dc2626;
+  --red-lt:#ef4444;
+  --red-dim:rgba(220,38,38,0.12);
+  --red-border:rgba(220,38,38,0.3);
+  --amber:#d97706;
+  --amber-dim:rgba(217,119,6,0.12);
+  --green:#16a34a;
+  --green-dim:rgba(22,163,74,0.12);
+  --white:#ffffff;
+  --gray-50:#f9fafb;
+  --gray-100:#f3f4f6;
+  --gray-200:#e5e7eb;
+  --gray-300:#d1d5db;
+  --gray-400:#9ca3af;
+  --gray-500:#6b7280;
+  --gray-600:#4b5563;
+  --gray-700:#374151;
+  --gray-800:#1f2937;
+  --text:#111827;
+  --text-muted:#6b7280;
+  --text-hint:#9ca3af;
+  --border:#e5e7eb;
+  --border-strong:#d1d5db;
+  --surface:#ffffff;
+  --surface-2:#f9fafb;
+  --radius:8px;
+  --radius-lg:12px;
+  --font:'Inter',system-ui,sans-serif;
+  --font-tight:'Inter Tight','Inter',system-ui,sans-serif;
+}
+html{font-size:14px}
+body{font-family:var(--font);background:var(--gray-100);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+/* ── LOGIN OVERLAY ── */
+#loginOverlay{position:fixed;inset:0;background:rgba(17,17,17,0.92);backdrop-filter:blur(12px);z-index:9000;display:flex;align-items:center;justify-content:center}
+.login-box{width:360px;max-width:92vw;background:var(--white);border-radius:16px;padding:2rem;box-shadow:0 24px 64px rgba(0,0,0,0.3)}
+.login-logo{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
+.login-gem{width:38px;height:24px;background:var(--red);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;font-family:var(--font-tight);color:#fff;letter-spacing:0.5px}
+.login-brand{font-size:15px;font-weight:700;font-family:var(--font-tight);color:var(--black);letter-spacing:-0.3px}
+.login-brand span{color:var(--red);font-weight:400}
+.login-title{font-size:18px;font-weight:600;font-family:var(--font-tight);color:var(--text);margin-bottom:0.3rem}
+.login-sub{font-size:12px;color:var(--text-muted);margin-bottom:1.5rem}
+.login-label{font-size:11px;font-weight:600;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;display:block}
+.login-input{width:100%;padding:0.6rem 0.85rem;border:1px solid var(--border-strong);border-radius:var(--radius);font-family:var(--font);font-size:14px;color:var(--text);outline:none;transition:border-color 0.15s}
+.login-input:focus{border-color:var(--red)}
+.login-input.err{border-color:var(--red-lt);background:#fff5f5}
+.login-err{font-size:12px;color:var(--red-lt);min-height:1.2rem;margin:6px 0 10px}
+.login-btn{width:100%;padding:0.65rem;background:var(--black);border:none;border-radius:var(--radius);color:#fff;font-family:var(--font-tight);font-size:14px;font-weight:600;cursor:pointer;transition:background 0.15s;letter-spacing:0.01em}
+.login-btn:hover{background:#2a2a2a}
+
+/* ── HEADER ── */
+header{position:sticky;top:0;z-index:60;background:var(--black);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.hdr-logo{display:flex;align-items:center;gap:9px}
+.hdr-gem{width:36px;height:22px;background:var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;font-family:var(--font-tight);color:#fff;letter-spacing:0.4px}
+.hdr-brand{font-size:14px;font-weight:700;font-family:var(--font-tight);color:#fff;letter-spacing:-0.2px}
+.hdr-brand span{color:#f87171;font-weight:400}
+.hdr-center{display:flex;align-items:center;gap:10px}
+.hdr-pill{display:flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.04em;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45)}
+.hdr-pill .dot{width:5px;height:5px;border-radius:50%}
+.hdr-right{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,0.4);text-align:right;line-height:1.6}
+.hdr-right strong{color:#f87171;font-weight:500}
+#clearDataBtn{margin-left:6px;padding:3px 8px;font-size:10px;font-family:var(--font);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:4px;color:rgba(255,255,255,0.3);cursor:pointer;transition:all 0.15s}
+#clearDataBtn:hover{border-color:#ef4444;color:#ef4444}
+#roleBadge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6)}
+#roleBadge:hover{border-color:rgba(255,255,255,0.25);color:#fff}
+
+/* ── TAB BAR ── */
+.tab-bar{background:var(--white);border-bottom:1px solid var(--border);display:flex;padding:0 1.5rem;position:sticky;top:52px;z-index:50}
+.tab{padding:11px 16px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s;user-select:none;white-space:nowrap}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--red);border-bottom-color:var(--red)}
+.tab.locked{opacity:0.4;cursor:not-allowed}
+.tab.locked::after{content:'🔒';font-size:9px;margin-left:4px}
+
+/* ── CONTAINER ── */
+.container{max-width:1440px;margin:0 auto;padding:1.25rem 1.5rem}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* ── CARDS ── */
+.card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg)}
+.card-p{padding:1.1rem 1.25rem}
+
+/* ── SECTION LABEL ── */
+.slabel{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+
+/* ── KPI GRID ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem}
+.kpi{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px}
+.kpi-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+.kpi-val{font-size:22px;font-weight:700;font-family:var(--font-tight);line-height:1}
+.kpi-val.red{color:var(--red)}
+.kpi-val.amber{color:var(--amber)}
+.kpi-val.green{color:var(--green)}
+.kpi-val.muted{color:var(--text-muted)}
+.kpi-sub{font-size:11px;color:var(--text-hint);margin-top:4px}
+@media(max-width:700px){.kpi-grid{grid-template-columns:1fr 1fr}}
+
+/* ── TOP 5 ── */
+.top5-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:1rem}
+.top5-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:12px 14px}
+.top5-rank{font-size:11px;font-weight:700;font-family:var(--font-tight);margin-bottom:6px}
+.top5-name{font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.top5-meta{font-size:11px;color:var(--text-muted);margin-bottom:6px}
+.top5-rev{font-size:13px;font-weight:700;font-family:var(--font-tight);color:var(--red)}
+.top5-bar-wrap{height:3px;background:var(--gray-100);border-radius:2px;margin-top:6px}
+.top5-bar{height:100%;background:var(--red);border-radius:2px;opacity:0.6}
+@media(max-width:900px){.top5-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.top5-grid{grid-template-columns:1fr 1fr}}
+
+/* ── CHARTS ── */
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.bc-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.bc-label{font-size:11px;font-weight:600;color:var(--text-muted);width:28px;text-align:right;flex-shrink:0}
+.bc-bar-wrap{flex:1;height:7px;background:var(--gray-100);border-radius:4px;overflow:hidden}
+.bc-fill{height:100%;border-radius:4px}
+.bc-val{font-size:11px;color:var(--text-muted);width:52px;text-align:right;flex-shrink:0}
+.pf-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.pf-label{font-size:11px;color:var(--text-muted);flex:1}
+.pf-bar-wrap{width:80px;height:7px;background:var(--gray-100);border-radius:4px;overflow:hidden}
+.pf-fill{height:100%;border-radius:4px}
+.pf-count{font-size:11px;color:var(--text-muted);width:24px;text-align:right}
+
+/* ── MONTHLY STATUS GRID ── */
+.monthly-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.month-slot{background:var(--gray-50);border:0.5px solid var(--border);border-radius:var(--radius);padding:8px 10px;font-size:11px}
+.month-slot.has-data{background:#fff5f5;border-color:var(--red-border)}
+.month-slot .m-name{font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-muted);font-size:10px;margin-bottom:3px}
+.month-slot.has-data .m-name{color:var(--red)}
+.month-slot .m-count{font-weight:700;font-family:var(--font-tight);font-size:13px;color:var(--red)}
+.month-slot .m-ts{font-size:10px;color:var(--text-hint);margin-top:2px}
+.m-type-row{display:flex;gap:3px;margin-top:4px}
+.m-type-btn{flex:1;padding:2px 0;border-radius:3px;font-size:9px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;border:0.5px solid var(--border);background:transparent;color:var(--text-hint);cursor:pointer;transition:all 0.12s;text-align:center}
+.m-type-btn.sel-final{border-color:var(--red-border);color:var(--red);background:var(--red-dim)}
+.m-type-btn.sel-partial{border-color:rgba(217,119,6,0.3);color:var(--amber);background:var(--amber-dim)}
+@media(max-width:700px){.monthly-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ── FILTERS BAR ── */
+.filters-bar{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:1rem;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg label{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)}
+select,.sel-fake{background:var(--white);border:0.5px solid var(--border-strong);border-radius:var(--radius);color:var(--text);font-family:var(--font);font-size:13px;padding:6px 10px;outline:none;cursor:pointer;transition:border-color 0.15s;appearance:none;min-width:100px}
+select:focus{border-color:var(--red)}
+.sw{position:relative}.sw::after{content:'▾';position:absolute;right:8px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;font-size:10px}
+.btn-apply{padding:7px 16px;background:var(--black);border:none;border-radius:var(--radius);color:#fff;font-family:var(--font-tight);font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;letter-spacing:0.02em;align-self:flex-end}
+.btn-apply:hover{background:#2a2a2a}
+
+/* State multi-select dropdown */
+.msw{position:relative}
+.ms-btn{display:flex;align-items:center;justify-content:space-between;gap:6px;background:var(--white);border:0.5px solid var(--border-strong);border-radius:var(--radius);color:var(--text);font-family:var(--font);font-size:13px;padding:6px 10px;cursor:pointer;user-select:none;min-width:180px}
+.ms-btn:hover{border-color:var(--gray-400)}
+.ms-btn .chv{color:var(--text-muted);font-size:10px}
+.ms-dd{position:absolute;top:calc(100% + 3px);left:0;right:0;background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);z-index:200;max-height:260px;overflow-y:auto;display:none;box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.ms-dd.open{display:block}
+.dd-search{width:100%;background:var(--white);border:none;border-bottom:0.5px solid var(--border);color:var(--text);font-family:var(--font);font-size:13px;padding:8px 10px;outline:none}
+.dd-gl{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);padding:7px 10px 3px}
+.dd-opt{display:flex;align-items:center;gap:8px;padding:6px 10px;font-size:12px;cursor:pointer;transition:background 0.1s}
+.dd-opt:hover{background:var(--gray-50)}
+.dd-opt.sp{color:var(--red);font-weight:600;border-bottom:0.5px solid var(--border)}
+.dd-opt input[type=checkbox]{accent-color:var(--red);width:13px;height:13px;cursor:pointer;flex-shrink:0}
+
+/* ── TABLE SECTION ── */
+.tbl-section{overflow:hidden}
+.tbl-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:0.5px solid var(--border);flex-wrap:wrap;gap:8px}
+.tbl-title{font-size:14px;font-weight:600;font-family:var(--font-tight);color:var(--text)}
+#atRiskCount{font-size:12px;font-weight:600;color:var(--green);margin-left:6px}
+.tbl-acts{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.srch{padding:5px 10px;border:0.5px solid var(--border-strong);border-radius:var(--radius);font-family:var(--font);font-size:12px;color:var(--text);outline:none;width:160px;transition:border-color 0.15s}
+.srch:focus{border-color:var(--red)}
+.btn-sm{padding:5px 10px;border-radius:var(--radius);border:0.5px solid var(--border-strong);background:var(--white);color:var(--text);font-family:var(--font);font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s;white-space:nowrap}
+.btn-sm:hover{background:var(--gray-50);border-color:var(--gray-400)}
+.btn-sm.primary{background:var(--black);border-color:var(--black);color:#fff}
+.btn-sm.primary:hover{background:#2a2a2a}
+.btn-sm.red{background:var(--red-dim);border-color:var(--red-border);color:var(--red)}
+.btn-sm.red:hover{background:rgba(220,38,38,0.18)}
+table{width:100%;border-collapse:collapse}
+thead th{font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);padding:8px 10px;border-bottom:0.5px solid var(--border);text-align:left;background:var(--gray-50);cursor:pointer;user-select:none;white-space:nowrap}
+thead th:hover{color:var(--text)}
+tbody td{font-size:12px;color:var(--text);padding:9px 10px;border-bottom:0.5px solid var(--gray-100);vertical-align:middle}
+tbody tr:hover td{background:var(--gray-50)}
+tbody tr.tagged td{background:#fffbeb}
+tbody tr.tagged:hover td{background:#fef9e7}
+.an{font-weight:500;color:var(--text)}
+.cbadge{display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:700;letter-spacing:0.05em}
+.cbadge.usa{background:var(--gray-100);color:var(--gray-600)}
+.cbadge.can{background:#eff6ff;color:#1d4ed8}
+.pace-wrap{display:flex;align-items:center;gap:6px}
+.pace-bar{width:50px;height:5px;background:var(--gray-100);border-radius:3px;overflow:hidden;flex-shrink:0}
+.pace-fill{height:100%;border-radius:3px}
+.pace-fill.good{background:var(--green)}
+.pace-fill.warn{background:var(--amber)}
+.pace-fill.bad{background:var(--red)}
+.ppct{font-size:11px;font-weight:700}
+.ppct.good{color:var(--green)}.ppct.warn{color:var(--amber)}.ppct.bad{color:var(--red)}
+.mb{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:700}
+.mb.mc{background:var(--red-dim);color:var(--red);border:0.5px solid var(--red-border)}
+.mb.mh{background:var(--amber-dim);color:var(--amber);border:0.5px solid rgba(217,119,6,0.3)}
+.mb.mm{background:var(--gray-100);color:var(--text-muted);border:0.5px solid var(--border)}
+.ra{display:flex;gap:4px;align-items:center}
+.ba{padding:4px 8px;border-radius:5px;border:0.5px solid var(--border);background:var(--white);color:var(--text-muted);font-family:var(--font);font-size:10px;font-weight:600;cursor:pointer;transition:all 0.12s;white-space:nowrap}
+.ba:hover{background:var(--gray-50);color:var(--text)}
+.ba-tag{border-color:rgba(217,119,6,0.3);color:var(--amber);background:var(--amber-dim)}
+.ba-tag:hover{background:rgba(217,119,6,0.18)}
+.ba-untag{border-color:var(--border);color:var(--text-hint)}
+.ba-untag:hover{border-color:var(--red-lt);color:var(--red-lt)}
+.sel-check{width:14px;height:14px;accent-color:var(--red);cursor:pointer}
+.otag{display:inline-block;padding:1px 5px;background:var(--amber-dim);color:var(--amber);border-radius:3px;font-size:9px;font-weight:700;margin-left:5px;border:0.5px solid rgba(217,119,6,0.3)}
+/* empty state */
+.empty{padding:3rem 2rem;text-align:center;color:var(--text-muted)}
+.empty .ei{font-size:2rem;opacity:0.3;margin-bottom:0.55rem}
+.empty p{font-size:13px}.empty .eh{font-size:11px;margin-top:4px;opacity:0.6}
+/* pagination */
+.pag{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-top:0.5px solid var(--border);font-size:11px;color:var(--text-muted)}
+.pbtns{display:flex;gap:3px}
+.pb{padding:3px 7px;border-radius:5px;border:0.5px solid var(--border);background:var(--white);color:var(--text-muted);font-family:var(--font);font-size:11px;cursor:pointer;transition:all 0.12s}
+.pb:hover,.pb.act{border-color:var(--red-border);color:var(--red);background:var(--red-dim)}
+
+/* ── DATA SOURCES ── */
+.ds-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem}
+.ds-card{padding:14px 16px}
+.ds-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.ds-sub{font-size:11px;color:var(--text-muted);margin-bottom:10px;line-height:1.5}
+.ds-row{display:flex;align-items:center;gap:8px}
+.btn-upload{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:var(--radius);border:0.5px solid var(--red-border);background:var(--red-dim);color:var(--red);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:background 0.15s;white-space:nowrap}
+.btn-upload:hover{background:rgba(220,38,38,0.18)}
+.file-status{font-size:11px;color:var(--text-muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file-status.ok{color:var(--green)}.file-status.ok::before{content:'✓  '}
+.file-status.err{color:var(--red)}
+input[type="file"]{display:none}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--black);color:#fff;border-radius:var(--radius);padding:10px 16px;font-size:12px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:9999;opacity:0;transform:translateY(6px);transition:all 0.2s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.ok{background:var(--green)}.toast.err{background:var(--red)}.toast.ot{background:var(--amber)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){.container{padding:1rem}.filters-bar{flex-direction:column}.charts-row{grid-template-columns:1fr}.ds-grid{grid-template-columns:1fr}.kpi-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN OVERLAY -->
+<div id="loginOverlay">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-gem">NRT</div>
+      <div class="login-brand">NRT <span>V4.0</span></div>
+    </div>
+    <div class="login-title">Account Retention Platform</div>
+    <div class="login-sub">Dental Implant Industry · USA &amp; Canada</div>
+    <label class="login-label" for="loginPwd">Password</label>
+    <input type="password" id="loginPwd" class="login-input" placeholder="Enter your password…" onkeydown="if(event.key==='Enter')doLogin()">
+    <div class="login-err" id="loginErr"></div>
+    <button class="login-btn" onclick="doLogin()">Sign In →</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr-logo">
+    <div class="hdr-gem">NRT</div>
+    <div class="hdr-brand">NRT <span>V4.0</span></div>
+  </div>
+  <div class="hdr-center">
+    <div class="hdr-pill"><div class="dot" style="background:#ef4444"></div><span id="hdrAtRisk">0 at risk</span></div>
+    <div class="hdr-pill"><div class="dot" style="background:var(--amber)"></div><span id="hdrTagged">0 tagged</span></div>
+    <button id="roleBadge" onclick="showLogout()">🔐 Admin</button>
+  </div>
+  <div class="hdr-right">
+    <div>Last upload: <strong id="tsMonthly">—</strong></div>
+    <button id="clearDataBtn" onclick="clearState()">⊗ Clear Data</button>
+  </div>
+</header>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <div class="tab active" onclick="switchTab('dashboard')">📊 Dashboard</div>
+  <div class="tab" onclick="switchTab('accounts')">🎯 At-Risk Accounts</div>
+  <div class="tab" id="dataTab" style="margin-left:auto" onclick="switchTab('data')">📁 Data Sources</div>
+</div>
+
+<div class="container">
+
+<!-- ══════════ DASHBOARD TAB ══════════ -->
+<div class="tab-panel active" id="tab-dashboard">
+
+  <!-- DASH HERO -->
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:8px;margin-top:0.25rem">
+    <div>
+      <div style="font-size:18px;font-weight:700;font-family:var(--font-tight);color:var(--text);letter-spacing:-0.3px">NRT <span style="color:var(--red);font-weight:400">V4.0</span></div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Account Retention · Dental Implants · USA &amp; Canada</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <div id="dashAlertPill" style="display:none;align-items:center;gap:5px;background:var(--red-dim);border:1px solid var(--red-border);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;color:var(--red)">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block"></span>
+        <span id="dashAlertTxt">— accounts at risk</span>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);text-align:right;line-height:1.7" id="dashTs">No data loaded</div>
+    </div>
+  </div>
+
+  <!-- KPI GRID -->
+  <div class="kpi-grid">
+    <div class="kpi" style="border-top:3px solid var(--red)">
+      <div class="kpi-label">Not purchasing</div>
+      <div class="kpi-val red" id="kAtRisk">—</div>
+      <div class="kpi-sub" id="kAtRiskSub">Silent accounts</div>
+    </div>
+    <div class="kpi" style="border-top:3px solid var(--amber)">
+      <div class="kpi-label">Revenue at risk</div>
+      <div class="kpi-val amber" id="kRevenue">—</div>
+      <div class="kpi-sub">2025 baseline value</div>
+    </div>
+    <div class="kpi" style="border-top:3px solid var(--green)">
+      <div class="kpi-label">Active in 2026</div>
+      <div class="kpi-val green" id="kActive">—</div>
+      <div class="kpi-sub">Purchasing all months</div>
+    </div>
+    <div class="kpi" style="border-top:3px solid var(--gray-300)">
+      <div class="kpi-label">Baseline accounts</div>
+      <div class="kpi-val muted" id="kTotal">—</div>
+      <div class="kpi-sub">2025 total</div>
+    </div>
+  </div>
+
+  <!-- TOP 5 -->
+  <div class="slabel" style="margin-top:0.25rem">Top 5 silent accounts by 2025 revenue</div>
+  <div class="top5-grid" id="top5Grid">
+    <div class="top5-card" style="opacity:0.4"><div class="top5-name">No data loaded</div></div>
+  </div>
+
+  <!-- CHARTS ROW -->
+  <div class="charts-row">
+    <div class="card card-p">
+      <div class="slabel">At-risk revenue by state</div>
+      <div id="stateChart" style="margin-top:8px"><div style="font-size:12px;color:var(--text-muted)">No at-risk data yet</div></div>
+    </div>
+    <div class="card card-p">
+      <div class="slabel">Pace distribution</div>
+      <div id="paceChart" style="margin-top:8px"><div style="font-size:12px;color:var(--text-muted)">No at-risk data yet</div></div>
+    </div>
+  </div>
+
+  <!-- MONTHLY STATUS -->
+  <div class="slabel">2026 monthly data status</div>
+  <div class="card card-p" style="margin-bottom:0.5rem">
+    <div class="monthly-grid" id="monthlyStatusGrid"></div>
+  </div>
+
+</div><!-- /dashboard -->
+
+<!-- ══════════ ACCOUNTS TAB ══════════ -->
+<div class="tab-panel" id="tab-accounts">
+
+  <!-- FILTERS -->
+  <div class="slabel" style="margin-top:0.25rem">Filters</div>
+  <div class="filters-bar">
+    <div class="fg" style="max-width:90px">
+      <label>Year</label>
+      <div class="sw"><select id="yearSel" onchange="applyFilters()">
+        <option value="all">ALL</option>
+        <option value="2026" selected>2026</option>
+        <option value="2025">2025</option>
+      </select></div>
+    </div>
+    <div class="fg" style="max-width:195px">
+      <label>State / Province</label>
+      <div class="msw" id="stateWrap">
+        <div class="ms-btn" id="stateBtn" onclick="toggleDD()">
+          <span id="stateLbl">All States &amp; Provinces</span><span class="chv">▾</span>
+        </div>
+        <div class="ms-dd" id="stateDD">
+          <input type="text" class="dd-search" id="ddSrch" placeholder="Search state…" oninput="buildOpts(this.value)">
+          <div id="ddOpts"></div>
+        </div>
+      </div>
+    </div>
+    <div class="fg" style="max-width:150px">
+      <label>Silent Months (min)</label>
+      <div class="sw"><select id="gapSel">
+        <option value="all">Select All</option>
+        <option value="1">1 Month</option><option value="2">2 Months</option><option value="3">3 Months</option>
+        <option value="4">4 Months</option><option value="5">5 Months</option><option value="6">6 Months</option>
+        <option value="7">7 Months</option><option value="8">8 Months</option><option value="9">9 Months</option>
+        <option value="10">10 Months</option><option value="11">11 Months</option><option value="12">12 Months</option>
+      </select></div>
+    </div>
+    <div class="fg" style="max-width:140px">
+      <label>Sales Rep</label>
+      <div class="sw"><select id="repSel"><option value="all">All Reps</option></select></div>
+    </div>
+    <div class="fg" style="max-width:130px">
+      <label>Tagged</label>
+      <div class="sw"><select id="tagSel">
+        <option value="all">All Accounts</option>
+        <option value="tagged">Tagged Only</option>
+        <option value="untagged">Untagged Only</option>
+      </select></div>
+    </div>
+    <div class="fg" style="max-width:170px">
+      <label>Sort By</label>
+      <div class="sw"><select id="sortSel" onchange="applyFilters()">
+        <option value="revenue_desc">Revenue ↓ (Highest)</option>
+        <option value="revenue_asc">Revenue ↑</option>
+        <option value="pace_asc">Pace % ↑ (Most at-risk)</option>
+        <option value="gap_desc">Silent Months ↓</option>
+        <option value="name_asc">Account A–Z</option>
+      </select></div>
+    </div>
+    <button class="btn-apply" onclick="applyFilters()">Apply Filters</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="card tbl-section">
+    <div class="tbl-hdr">
+      <div>
+        <span class="tbl-title" id="atRiskTableHdr">Accounts not purchasing in 2026</span>
+        <span id="atRiskCount"></span>
+      </div>
+      <div class="tbl-acts">
+        <input type="text" class="srch" id="tblSrch" placeholder="🔍 Search accounts…" oninput="renderTable()">
+        <button class="btn-sm" onclick="tagAll()">Flag All Visible</button>
+        <button class="btn-sm red" onclick="exportSelected()">⬇ Export Selected</button>
+        <button class="btn-sm primary" onclick="exportCSV()">⬇ Export All</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr>
+          <th style="width:30px"><input type="checkbox" id="selAll" class="sel-check" onchange="toggleSelAll(this.checked)" title="Select all"></th>
+          <th onclick="sc('name')">Account Name</th>
+          <th onclick="sc('state')">State</th>
+          <th>Country</th>
+          <th onclick="sc('rep')">Sales Rep</th>
+          <th onclick="sc('revenue')">2025 Annual Rev.</th>
+          <th>Avg Mo. Rate</th>
+          <th onclick="sc('ytd')">2026 YTD</th>
+          <th onclick="sc('pace')" id="paceColHdr">2026 Pace</th>
+          <th onclick="sc('gap')">Silent Months</th>
+          <th style="min-width:100px">Actions</th>
+        </tr></thead>
+        <tbody id="tblBody">
+          <tr><td colspan="11"><div class="empty"><div class="ei">📁</div><p>Upload data in Data Sources to begin.</p><p class="eh">Supported: CSV, XLS, XLSX</p></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag" id="pagBar" style="display:none">
+      <span id="pagInfo"></span>
+      <div class="pbtns" id="pagBtns"></div>
+    </div>
+  </div>
+
+</div><!-- /accounts -->
+
+<!-- ══════════ DATA SOURCES TAB ══════════ -->
+<div class="tab-panel" id="tab-data">
+
+  <div class="slabel" style="margin-top:0.25rem">2025 Baseline</div>
+  <div class="ds-grid" style="grid-template-columns:1fr 1fr;margin-bottom:1.25rem">
+    <div class="card ds-card">
+      <div class="ds-title">📋 2025 Baseline Accounts</div>
+      <div class="ds-sub">Columns: <em>Account Name, State, Annual Revenue</em></div>
+      <div class="ds-row">
+        <button class="btn-upload" onclick="document.getElementById('blFile').click()">⬆ Upload CSV / XLS / XLSX</button>
+        <input type="file" id="blFile" accept=".csv,.xlsx,.xls" onchange="handleFile(this,'baseline')">
+        <span class="file-status" id="blStatus">No file loaded</span>
+      </div>
+    </div>
+    <div class="card ds-card">
+      <div class="ds-title">👤 State → Rep Assignment</div>
+      <div class="ds-sub">Columns: <em>State, Rep Name</em> — one rep owns all accounts in a state</div>
+      <div class="ds-row">
+        <button class="btn-upload" onclick="document.getElementById('repFile').click()">⬆ Upload CSV / XLS / XLSX</button>
+        <input type="file" id="repFile" accept=".csv,.xlsx,.xls" onchange="handleFile(this,'reps')">
+        <span class="file-status" id="repStatus">No file loaded (optional)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slabel">2026 Monthly Sales Files — Upload Each Month Separately</div>
+  <div class="card" style="padding:14px 16px;margin-bottom:1rem">
+    <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;line-height:1.6">
+      Upload one file per month. Each file = that month's sales only (e.g. March file = March 1–15 only). Platform accumulates them to build true 2026 YTD per account.<br>
+      Columns: <em>Account Name, State, Revenue</em>
+    </div>
+    <div class="monthly-grid" id="monthlyUploadGrid"></div>
+  </div>
+
+</div><!-- /data -->
+
+</div><!-- /container -->
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+// ── AUTH ──────────────────────────────────────────────────
+const ADMIN_PW='NorisNRT2026!';
+const VIEWER_PW='NorisLeaders2026';
+const SESSION_KEY='nrt4_auth';
+const SESSION_HOURS=8;
+let currentRole=null;
+
+function getSession(){try{const s=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'null');if(!s)return null;if(Date.now()>s.expires){sessionStorage.removeItem(SESSION_KEY);return null;}return s;}catch{return null;}}
+function setSession(role){sessionStorage.setItem(SESSION_KEY,JSON.stringify({role,expires:Date.now()+SESSION_HOURS*3600000}));}
+function clearSession(){sessionStorage.removeItem(SESSION_KEY);}
+
+function doLogin(){
+  const pwd=document.getElementById('loginPwd').value;
+  const errEl=document.getElementById('loginErr');
+  const inp=document.getElementById('loginPwd');
+  if(!pwd){errEl.textContent='Please enter your password.';inp.classList.add('err');return;}
+  errEl.textContent='';inp.classList.remove('err');
+  if(pwd===ADMIN_PW){setSession('admin');applyRole('admin');hideOverlay();}
+  else if(pwd===VIEWER_PW){setSession('viewer');applyRole('viewer');hideOverlay();}
+  else{errEl.textContent='Incorrect password. Please try again.';inp.classList.add('err');inp.value='';setTimeout(()=>inp.classList.remove('err'),1800);}
+}
+function hideOverlay(){
+  document.getElementById('loginOverlay').style.display='none';
+  buildOpts('');buildMonthlyGrids();loadState();
+}
+function applyRole(role){
+  currentRole=role;
+  const badge=document.getElementById('roleBadge');
+  const dataTab=document.getElementById('dataTab');
+  const clearBtn=document.getElementById('clearDataBtn');
+  if(role==='admin'){
+    badge.textContent='🔐 Admin';
+    dataTab.classList.remove('locked');
+    dataTab.onclick=()=>switchTab('data');
+    if(clearBtn)clearBtn.style.display='';
+  } else {
+    badge.textContent='👁 Viewer';
+    dataTab.classList.add('locked');
+    dataTab.onclick=()=>showToast('Data Sources is Admin only.','err');
+    if(clearBtn)clearBtn.style.display='none';
+  }
+}
+function showLogout(){if(confirm('Sign out of NRT V4.0?')){clearSession();currentRole=null;document.getElementById('loginOverlay').style.display='flex';document.getElementById('loginPwd').value='';document.getElementById('loginErr').textContent='';switchTab('dashboard');}}
+
+// Init auth
+(function(){const s=getSession();if(s){applyRole(s.role);document.getElementById('loginOverlay').style.display='none';}})();
+
+// ── CONSTANTS ────────────────────────────────────────────
+const USA={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
+const CAN={AB:'Alberta',BC:'British Columbia',MB:'Manitoba',NB:'New Brunswick',NL:'Newfoundland and Labrador',NS:'Nova Scotia',ON:'Ontario',PE:'Prince Edward Island',QC:'Quebec',SK:'Saskatchewan'};
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+// ── DATA STATE ───────────────────────────────────────────
+let baseline=[];        // [{name,state,country,revenue}]
+let repMap={};          // {state_upper: repName}
+let monthlyFiles={};    // {1:{accounts:[{name,rev}],ts,partial},2:...}
+let filteredResults=[];
+let selectedStates=new Set(['__ALL__']);
+let taggedAccounts=new Set();
+let selectedRows=new Set();
+let currentPage=1;
+const PAGE_SIZE=25;
+
+// ── TABS ─────────────────────────────────────────────────
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  const map={dashboard:0,accounts:1,data:2};
+  const tabs=document.querySelectorAll('.tab');
+  if(tabs[map[id]])tabs[map[id]].classList.add('active');
+  const panel=document.getElementById('tab-'+id);
+  if(panel)panel.classList.add('active');
+  if(id==='dashboard')refreshDashboard();
+  if(id==='accounts')applyFilters();
+}
+
+// ── STATE DROPDOWN ───────────────────────────────────────
+function toggleDD(){const dd=document.getElementById('stateDD');dd.classList.toggle('open');if(dd.classList.contains('open'))document.getElementById('ddSrch').focus();}
+document.addEventListener('click',e=>{const w=document.getElementById('stateWrap');if(w&&!w.contains(e.target))document.getElementById('stateDD').classList.remove('open');});
+function buildOpts(q){
+  q=(q||'').toLowerCase();const c=document.getElementById('ddOpts');if(!c)return;c.innerHTML='';
+  [{v:'__ALL__',l:'All States & Provinces'},{v:'__USA__',l:'USA (All)'},{v:'__CAN__',l:'Canada (All)'}]
+    .forEach(s=>{if(!q||s.l.toLowerCase().includes(q))addOpt(c,s.v,s.l,true);});
+  const ue=Object.entries(USA).filter(([k,v])=>!q||k.toLowerCase().includes(q)||v.toLowerCase().includes(q));
+  if(ue.length){const g=document.createElement('div');g.className='dd-gl';g.textContent='USA States';c.appendChild(g);ue.forEach(([k,v])=>addOpt(c,k,k+' — '+v,false));}
+  const ce=Object.entries(CAN).filter(([k,v])=>!q||k.toLowerCase().includes(q)||v.toLowerCase().includes(q));
+  if(ce.length){const g=document.createElement('div');g.className='dd-gl';g.textContent='Canadian Provinces';c.appendChild(g);ce.forEach(([k,v])=>addOpt(c,k,k+' — '+v,false));}
+  updateStateLabel();
+}
+function addOpt(c,val,label,special){
+  const el=document.createElement('div');el.className='dd-opt'+(special?' sp':'');
+  const chk=document.createElement('input');chk.type='checkbox';chk.checked=selectedStates.has(val);
+  chk.addEventListener('change',()=>onChk(chk,val));
+  const sp=document.createElement('span');sp.textContent=label;el.appendChild(chk);el.appendChild(sp);
+  el.addEventListener('click',e=>{if(e.target!==chk){chk.checked=!chk.checked;onChk(chk,val);}});
+  c.appendChild(el);
+}
+function onChk(chk,val){
+  if(val==='__ALL__'){selectedStates.clear();selectedStates.add('__ALL__');}
+  else if(val==='__USA__'){selectedStates.delete('__ALL__');selectedStates.delete('__CAN__');if(chk.checked)Object.keys(USA).forEach(k=>selectedStates.add(k));else Object.keys(USA).forEach(k=>selectedStates.delete(k));}
+  else if(val==='__CAN__'){selectedStates.delete('__ALL__');selectedStates.delete('__USA__');if(chk.checked)Object.keys(CAN).forEach(k=>selectedStates.add(k));else Object.keys(CAN).forEach(k=>selectedStates.delete(k));}
+  else{selectedStates.delete('__ALL__');selectedStates.delete('__USA__');selectedStates.delete('__CAN__');if(chk.checked)selectedStates.add(val);else selectedStates.delete(val);}
+  buildOpts(document.getElementById('ddSrch').value);updateStateLabel();
+}
+function updateStateLabel(){
+  const el=document.getElementById('stateLbl');if(!el)return;
+  if(selectedStates.has('__ALL__')){el.textContent='All States & Provinces';}
+  else if(selectedStates.size===0){el.textContent='None selected';}
+  else{const arr=[...selectedStates].filter(s=>!s.startsWith('__'));el.textContent=arr.length<=2?arr.join(', '):arr.length+' selected';}
+}
+
+// ── MONTHLY GRIDS ────────────────────────────────────────
+function buildMonthlyGrids(){
+  const sg=document.getElementById('monthlyStatusGrid');
+  const ug=document.getElementById('monthlyUploadGrid');
+  if(sg)sg.innerHTML=MONTHS.map((m,i)=>{
+    const n=i+1;const d=monthlyFiles[n];
+    return `<div class="month-slot${d?' has-data':''}">
+      <div class="m-name">${m.slice(0,3)}</div>
+      ${d?`<div class="m-count">${d.accounts.length}</div><div class="m-ts">${d.ts||''}</div>`:'<div style="font-size:10px;color:var(--text-hint);margin-top:2px">—</div>'}
+    </div>`;
+  }).join('');
+  if(ug)ug.innerHTML=MONTHS.map((m,i)=>{
+    const n=i+1;const d=monthlyFiles[n];
+    const isPartial=d&&d.partial;
+    return `<div class="month-slot${d?' has-data':''}${isPartial?' is-partial':''}" id="mslot-${n}">
+      <div class="m-name">${m.slice(0,3)}</div>
+      ${d?`<div class="m-count">${d.accounts.length} accts</div>
+        <div class="m-type-row">
+          <button class="m-type-btn ${!isPartial?'sel-final':''}" onclick="setMonthType(${n},false)">Final</button>
+          <button class="m-type-btn ${isPartial?'sel-partial':''}" onclick="setMonthType(${n},true)">MTD</button>
+        </div>
+        <div class="m-ts">${d.ts||''}</div>`:''}
+      <button class="${d?'btn-upload':'btn-upload'}" style="width:100%;margin-top:${d?'4px':'0'};justify-content:center;font-size:10px;padding:4px 6px" onclick="document.getElementById('mf-${n}').click()">${d?'↺ Re-upload':'+ Upload'}</button>
+      <input type="file" id="mf-${n}" accept=".csv,.xlsx,.xls" onchange="handleFile(this,'monthly',${n})">
+    </div>`;
+  }).join('');
+}
+function setMonthType(n,partial){
+  if(!monthlyFiles[n])return;
+  monthlyFiles[n].partial=partial;
+  buildMonthlyGrids();applyFilters();refreshDashboard();
+  saveState(n);
+}
+
+// ── FILE PARSING ─────────────────────────────────────────
+const nameKeys=['Account Name','Account','AccountName','Customer','Client','Practice','Name'];
+const revKeys=['Annual Revenue','Revenue','Revenue to Date','Sales','Sales $','Amount','Total','Net Sales'];
+const stateKeys=['State','Province','ST','State/Province'];
+const repKeys=['Rep Name','Sales Rep','Rep','Representative'];
+
+function pick(obj,keys){for(const k of keys){if(obj[k]!==undefined&&obj[k]!=='')return obj[k];}return undefined;}
+function parseRev(v){if(typeof v==='number')return Math.abs(v);let s=String(v).trim();const neg=s.startsWith('(')&&s.endsWith(')');s=s.replace(/[()\$£€,\s]/g,'').replace(/^[A-Z]{2,3}/,'').replace(/[^0-9.\-]/g,'');const n=parseFloat(s)||0;return Math.abs(n);}
+function normState(s){s=String(s).trim().toUpperCase().replace(/\.$/,'').replace(/\s+/g,' ');if(USA[s]||CAN[s])return s;for(const[k,v]of Object.entries(USA))if(v.toUpperCase()===s)return k;for(const[k,v]of Object.entries(CAN))if(v.toUpperCase()===s)return k;if(s==='NF')return 'NL';if(s==='QUE')return 'QC';return s;}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function fmtRev(n){if(n>=1000000)return '$'+(n/1000000).toFixed(1)+'M';if(n>=1000)return '$'+(n/1000).toFixed(0)+'K';return '$'+Math.round(n).toLocaleString();}
+function now(){return new Date().toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
+
+function parseRows(file,cb){
+  const ext=file.name.split('.').pop().toLowerCase();
+  if(ext==='csv'){PapaParse.parse(file,{header:true,skipEmptyLines:true,complete:r=>cb(r.data)});}
+  else{const reader=new FileReader();reader.onload=e=>{const wb=XLSX.read(e.target.result,{type:'array'});const ws=wb.Sheets[wb.SheetNames[0]];cb(XLSX.utils.sheet_to_json(ws,{defval:''}));};reader.readAsArrayBuffer(file);}
+}
+
+function handleFile(input,type,monthNum){
+  const file=input.files[0];if(!file)return;
+  parseRows(file,rows=>{
+    if(type==='baseline'){
+      baseline=rows.map(r=>{
+        const name=String(pick(r,nameKeys)||'').trim();
+        const state=normState(pick(r,stateKeys)||'');
+        const revenue=parseRev(pick(r,revKeys)||0);
+        const country=CAN[state]?'Canada':'USA';
+        return{name,state,country,revenue};
+      }).filter(r=>r.name&&r.revenue>0);
+      document.getElementById('blStatus').textContent='✓ '+baseline.length+' accounts loaded — '+file.name;
+      document.getElementById('blStatus').className='file-status ok';
+      document.getElementById('tsMonthly').textContent=now();
+      rebuildRepFilter();buildMonthlyGrids();applyFilters();refreshDashboard();
+      saveState('baseline');showToast('✓ Baseline loaded — '+baseline.length+' accounts');
+
+    } else if(type==='reps'){
+      repMap={};
+      rows.forEach(r=>{
+        const state=normState(pick(r,stateKeys)||'');
+        const rep=String(pick(r,repKeys)||'').trim();
+        if(state&&rep)repMap[state]=rep;
+      });
+      document.getElementById('repStatus').textContent='✓ '+Object.keys(repMap).length+' state assignments — '+file.name;
+      document.getElementById('repStatus').className='file-status ok';
+      rebuildRepFilter();applyFilters();
+      saveState('reps');showToast('✓ Rep assignments loaded — '+Object.keys(repMap).length+' states');
+
+    } else if(type==='monthly'){
+      const accounts=parseMonthlyRows(rows);
+      const ts=now();
+      const nowMonth=new Date().getMonth()+1;
+      const prevPartial=monthlyFiles[monthNum]?monthlyFiles[monthNum].partial:undefined;
+      const isPartial=prevPartial!==undefined?prevPartial:(monthNum>=nowMonth);
+      monthlyFiles[monthNum]={accounts,ts,partial:isPartial};
+      document.getElementById('tsMonthly').textContent=MONTHS[monthNum-1]+' — '+ts;
+      buildMonthlyGrids();applyFilters();refreshDashboard();
+      saveState(monthNum);showToast('✓ '+MONTHS[monthNum-1]+' loaded — '+accounts.length+' accounts');
+    }
+    input.value='';
+  });
+}
+
+function parseMonthlyRows(rows){
+  const nameKey=nameKeys.find(k=>rows[0]&&rows[0][k]!==undefined);
+  const revKey=revKeys.find(k=>rows[0]&&rows[0][k]!==undefined);
+  const stateKey=stateKeys.find(k=>rows[0]&&rows[0][k]!==undefined);
+
+  // Detect multi-line grouped format (blank name subtotal rows)
+  const hasGrouped=rows.some(r=>{const n=String(pick(r,nameKeys)||'').trim();return !n&&parseRev(pick(r,revKeys)||0)>0;});
+
+  if(hasGrouped){
+    const grouped=[];let cur=null;
+    rows.forEach(r=>{
+      const nm=String(pick(r,nameKeys)||'').trim().toLowerCase();
+      const rv=parseRev(pick(r,revKeys)||0);
+      const st=normState(pick(r,stateKeys)||'');
+      if(nm&&nm!=='customer'&&nm!=='account name'&&nm!=='account'){cur={name:nm,state:st,rev:rv,subtotal:0};grouped.push(cur);}
+      else if(cur&&!nm&&rv>0){cur.subtotal=rv;}
+    });
+    return grouped.map(g=>({name:g.name,state:g.state,rev:g.subtotal||g.rev})).filter(r=>r.name&&r.rev>0);
+  }
+  return rows.map(r=>{
+    const name=String(pick(r,nameKeys)||'').trim().toLowerCase();
+    const rev=parseRev(pick(r,revKeys)||0);
+    const state=normState(pick(r,stateKeys)||'');
+    return{name,state,rev};
+  }).filter(r=>r.name&&r.rev>0);
+}
+
+// ── REP FILTER ───────────────────────────────────────────
+function rebuildRepFilter(){
+  const sel=document.getElementById('repSel');if(!sel)return;
+  const cur=sel.value;
+  sel.innerHTML='<option value="all">All Reps</option>';
+  const reps=new Set(Object.values(repMap));
+  [...reps].sort().forEach(r=>{const o=document.createElement('option');o.value=r;o.textContent=r;sel.appendChild(o);});
+  sel.value=reps.has(cur)?cur:'all';
+}
+
+function getRepForAccount(acct){
+  const state=acct.state;
+  return repMap[state]||'—';
+}
+
+// ── YTD HELPERS ──────────────────────────────────────────
+function buildYTDMap(){
+  const map={};
+  Object.values(monthlyFiles).forEach(mf=>mf.accounts.forEach(a=>{map[a.name]=(map[a.name]||0)+a.rev;}));
+  return map;
+}
+function getLoadedMonths(){return Object.keys(monthlyFiles).map(Number).sort((a,b)=>a-b);}
+function getFinalMonths(){return getLoadedMonths().filter(n=>!monthlyFiles[n].partial);}
+function getMaxMonth(){const lm=getLoadedMonths();return lm.length?lm[lm.length-1]:new Date().getMonth()+1;}
+
+// ── FILTER ENGINE ─────────────────────────────────────────
+function applyFilters(){
+  const yearSel=document.getElementById('yearSel');
+  if(!yearSel)return;
+  const year=yearSel.value;
+  if(year==='2025'){applyFilters2025();return;}
+  if(year==='all'){applyFiltersAll();return;}
+  applyFilters2026();
+}
+
+function applyFilters2026(){
+  const loadedMonths=getLoadedMonths();
+  const useAll=selectedStates.has('__ALL__');
+  const repF=document.getElementById('repSel').value;
+  const tagF=document.getElementById('tagSel').value;
+  const gapVal=document.getElementById('gapSel').value;
+  const gapMin=gapVal==='all'?0:parseInt(gapVal);
+  const hasMTD=Object.values(monthlyFiles).some(f=>f.partial);
+  const finalMonthCount=getFinalMonths().length||Math.max(loadedMonths.length,1);
+
+  // Build per-account active months from 2026 files
+  const acct2026={};
+  loadedMonths.forEach(mn=>{
+    (monthlyFiles[mn].accounts||[]).forEach(a=>{
+      const nl=a.name.toLowerCase().trim();if(!nl)return;
+      if(!acct2026[nl])acct2026[nl]={name:a.name,state:a.state||'',activeMonths:new Set(),ytd:0};
+      if(a.rev>0){acct2026[nl].activeMonths.add(mn);acct2026[nl].ytd+=a.rev;}
+    });
+  });
+
+  const baseMap={};baseline.forEach(b=>baseMap[b.name.toLowerCase().trim()]=b);
+
+  filteredResults=Object.entries(acct2026).map(([nl,a26])=>{
+    const base=baseMap[nl]||null;
+    const name=base?base.name:a26.name;
+    const state=base?base.state:(a26.state||'');
+    const country=base?base.country:(CAN[state]?'Canada':'USA');
+    const revenue=base?base.revenue:0;
+    const rep=getRepForAccount({state});
+    const monthlyAvg=revenue>0?revenue/12:0;
+    const ytd=a26.ytd;
+    const ytdRate=finalMonthCount>0?ytd/finalMonthCount:0;
+    const paceRatio=monthlyAvg>0?(ytdRate/monthlyAvg)*100:0;
+    let silentCount=0;
+    loadedMonths.forEach(mn=>{if(!a26.activeMonths.has(mn))silentCount++;});
+    const monthsGap=loadedMonths.length>0?silentCount:0;
+    return{name,state,country,revenue,rep,ytd,monthlyAvg,ytdRate,paceRatio,monthsGap,hasMTD,finalMonthCount,inBaseline:!!base};
+  }).filter(acct=>{
+    if(!useAll&&acct.state&&!selectedStates.has(acct.state))return false;
+    if(repF!=='all'&&acct.rep!==repF)return false;
+    if(tagF==='tagged'&&!taggedAccounts.has(acct.name.toLowerCase()))return false;
+    if(tagF==='untagged'&&taggedAccounts.has(acct.name.toLowerCase()))return false;
+    if(gapMin>0&&acct.monthsGap<gapMin)return false;
+    if(gapMin===0&&acct.monthsGap===0&&loadedMonths.length>0)return false;
+    return true;
+  });
+
+  const hdr=document.getElementById('atRiskTableHdr');
+  if(hdr)hdr.textContent='Accounts not purchasing in 2026';
+  sortResults();updateKPIs();currentPage=1;renderTable();refreshDashboard();
+  updateCount();
+}
+
+function applyFilters2025(){
+  const useAll=selectedStates.has('__ALL__');
+  const repF=document.getElementById('repSel').value;
+  const tagF=document.getElementById('tagSel').value;
+  const purchasedIn2026=new Set();
+  Object.values(monthlyFiles).forEach(mf=>mf.accounts.forEach(a=>{if(a.rev>0)purchasedIn2026.add(a.name.toLowerCase().trim());}));
+  filteredResults=baseline.filter(acct=>{
+    if(purchasedIn2026.has(acct.name.toLowerCase()))return false;
+    if(!useAll&&!selectedStates.has(acct.state))return false;
+    const rep=getRepForAccount(acct);
+    if(repF!=='all'&&rep!==repF)return false;
+    if(tagF==='tagged'&&!taggedAccounts.has(acct.name.toLowerCase()))return false;
+    if(tagF==='untagged'&&taggedAccounts.has(acct.name.toLowerCase()))return false;
+    return true;
+  }).map(acct=>{
+    const rep=getRepForAccount(acct);
+    const monthlyAvg=acct.revenue/12;
+    return{...acct,rep,ytd:0,monthlyAvg,ytdRate:0,paceRatio:0,monthsGap:0,hasMTD:false,finalMonthCount:0,inBaseline:true};
+  });
+  const hdr=document.getElementById('atRiskTableHdr');
+  if(hdr)hdr.textContent='2025 accounts — no 2026 purchases';
+  sortResults();updateKPIs();currentPage=1;renderTable();refreshDashboard();
+  updateCount();
+}
+
+function applyFiltersAll(){
+  const loadedMonths=getLoadedMonths();
+  const useAll=selectedStates.has('__ALL__');
+  const repF=document.getElementById('repSel').value;
+  const tagF=document.getElementById('tagSel').value;
+  const gapVal=document.getElementById('gapSel').value;
+  const gapMin=gapVal==='all'?0:parseInt(gapVal);
+  const finalMonthCount=getFinalMonths().length||Math.max(loadedMonths.length,1);
+  const hasMTD=Object.values(monthlyFiles).some(f=>f.partial);
+  const eligibleMonths=loadedMonths.filter(mn=>mn!==12);// Dec excluded — treated as baseline sale
+
+  const acctActiveMonths={};
+  loadedMonths.forEach(mn=>{
+    (monthlyFiles[mn].accounts||[]).forEach(a=>{
+      const nl=a.name.toLowerCase().trim();
+      if(!acctActiveMonths[nl])acctActiveMonths[nl]=new Set();
+      if(a.rev>0)acctActiveMonths[nl].add(mn);
+    });
+  });
+  const ytdMap=buildYTDMap();
+
+  filteredResults=baseline.filter(acct=>{
+    if(!useAll&&!selectedStates.has(acct.state))return false;
+    const rep=getRepForAccount(acct);
+    if(repF!=='all'&&rep!==repF)return false;
+    if(tagF==='tagged'&&!taggedAccounts.has(acct.name.toLowerCase()))return false;
+    if(tagF==='untagged'&&taggedAccounts.has(acct.name.toLowerCase()))return false;
+    return true;
+  }).map(acct=>{
+    const nl=acct.name.toLowerCase().trim();
+    const rep=getRepForAccount(acct);
+    const ytd=ytdMap[nl]||0;
+    const monthlyAvg=acct.revenue/12;
+    const ytdRate=finalMonthCount>0?ytd/finalMonthCount:0;
+    const paceRatio=monthlyAvg>0?(ytdRate/monthlyAvg)*100:0;
+    const activeSet=acctActiveMonths[nl]||new Set();
+    let silentCount=0;
+    eligibleMonths.forEach(mn=>{if(!activeSet.has(mn))silentCount++;});
+    const monthsGap=eligibleMonths.length>0?silentCount:0;
+    const has2026=ytd>0;
+    return{...acct,rep,ytd,monthlyAvg,ytdRate,paceRatio,monthsGap,hasMTD,finalMonthCount,inBaseline:true,has2026};
+  }).filter(acct=>{
+    if(gapMin>0&&acct.monthsGap<gapMin)return false;
+    if(gapMin===0&&acct.monthsGap===0&&eligibleMonths.length>0)return false;
+    return true;
+  });
+  const hdr=document.getElementById('atRiskTableHdr');
+  if(hdr)hdr.textContent='All accounts — silent month analysis';
+  sortResults();updateKPIs();currentPage=1;renderTable();refreshDashboard();
+  updateCount();
+}
+
+function updateCount(){
+  const countEl=document.getElementById('atRiskCount');
+  if(countEl){const n=filteredResults.length;countEl.textContent=n>0?'— '+n.toLocaleString()+' account'+(n===1?'':'s'):'';}
+}
+
+function sortResults(){
+  const s=document.getElementById('sortSel').value;
+  filteredResults.sort((a,b)=>{
+    if(s==='revenue_desc')return b.revenue-a.revenue;
+    if(s==='revenue_asc')return a.revenue-b.revenue;
+    if(s==='pace_asc')return a.paceRatio-b.paceRatio;
+    if(s==='gap_desc')return b.monthsGap-a.monthsGap;
+    if(s==='name_asc')return a.name.localeCompare(b.name);
+    return 0;
+  });
+}
+
+// ── KPI UPDATE ───────────────────────────────────────────
+function updateKPIs(){
+  const loadedMonths=getLoadedMonths();
+  const atRisk=filteredResults.length;
+  const rev=filteredResults.reduce((s,r)=>s+r.revenue,0);
+  const total=baseline.length;
+  const tagged=taggedAccounts.size;
+  let active=0;
+  const yearMode=document.getElementById('yearSel')?document.getElementById('yearSel').value:'2026';
+  if(yearMode==='2026'&&loadedMonths.length>0){
+    const am={};
+    loadedMonths.forEach(mn=>{(monthlyFiles[mn].accounts||[]).forEach(a=>{const nl=a.name.toLowerCase().trim();if(!am[nl])am[nl]=new Set();if(a.rev>0)am[nl].add(mn);});});
+    active=Object.values(am).filter(s=>{let silent=0;loadedMonths.forEach(mn=>{if(!s.has(mn))silent++;});return silent===0;}).length;
+  } else if(baseline.length&&loadedMonths.length>0){
+    const am={};loadedMonths.forEach(mn=>{(monthlyFiles[mn].accounts||[]).forEach(a=>{const nl=a.name.toLowerCase().trim();if(!am[nl])am[nl]=new Set();if(a.rev>0)am[nl].add(mn);});});
+    const el=loadedMonths.filter(mn=>mn!==12);
+    active=baseline.filter(a=>{const s=am[a.name.toLowerCase().trim()]||new Set();let sil=0;el.forEach(mn=>{if(!s.has(mn))sil++;});return sil===0;}).length;
+  }
+  document.getElementById('kAtRisk').textContent=atRisk.toLocaleString();
+  document.getElementById('kRevenue').textContent=fmtRev(rev);
+  document.getElementById('kTotal').textContent=total>0?total.toLocaleString():'—';
+  document.getElementById('kActive').textContent=active>0?active.toLocaleString():'—';
+  document.getElementById('hdrAtRisk').textContent=atRisk+' at risk';
+  document.getElementById('hdrTagged').textContent=tagged+' tagged';
+  const pill=document.getElementById('dashAlertPill');
+  if(pill){if(atRisk>0){pill.style.display='flex';document.getElementById('dashAlertTxt').textContent=atRisk+' account'+(atRisk===1?'':' are')+' at risk';}else{pill.style.display='none';}}
+}
+
+// ── DASHBOARD CHARTS ────────────────────────────────────
+function refreshDashboard(){
+  updateKPIs();buildMonthlyGrids();buildTop5();buildStateChart();buildPaceChart();buildDashTs();
+}
+
+function buildTop5(){
+  const el=document.getElementById('top5Grid');if(!el)return;
+  const top5=[...filteredResults].sort((a,b)=>b.revenue-a.revenue).slice(0,5);
+  const maxRev=top5[0]?top5[0].revenue:1;
+  if(!top5.length){el.innerHTML='<div class="top5-card" style="opacity:0.4;grid-column:span 5"><div class="top5-name">No at-risk data yet</div></div>';return;}
+  const rankColors=['#dc2626','#d97706','#6b7280','#6b7280','#6b7280'];
+  el.innerHTML=top5.map((r,i)=>{
+    const tagged=taggedAccounts.has(r.name.toLowerCase());
+    const paceLabel=r.ytd>0?Math.round(r.paceRatio)+'%':'No orders';
+    const paceColor=r.ytd===0?'var(--red)':r.paceRatio>=80?'var(--green)':r.paceRatio>=40?'var(--amber)':'var(--red)';
+    return `<div class="top5-card${tagged?' tagged':''}">
+      <div class="top5-rank" style="color:${rankColors[i]}">#${i+1}</div>
+      <div class="top5-name" title="${esc(r.name)}">${esc(r.name)}</div>
+      <div class="top5-meta">${r.state||'—'}${r.rep&&r.rep!=='—'?' · '+r.rep:''}</div>
+      <div class="top5-rev">${fmtRev(r.revenue)}</div>
+      <div style="font-size:10px;color:${paceColor};font-weight:700;margin-top:2px">${paceLabel}</div>
+      <div class="top5-bar-wrap"><div class="top5-bar" style="width:${(r.revenue/maxRev*100).toFixed(1)}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function buildStateChart(){
+  const byState={};
+  filteredResults.forEach(r=>{if(!byState[r.state])byState[r.state]=0;byState[r.state]+=r.revenue;});
+  const sorted=Object.entries(byState).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  const max=sorted[0]?sorted[0][1]:1;
+  const colors=['#dc2626','#d97706','#16a34a','#2563eb','#7c3aed','#db2777','#059669','#d97706','#dc2626','#1d4ed8'];
+  document.getElementById('stateChart').innerHTML=sorted.length?sorted.map(([st,rev],i)=>`
+    <div class="bc-row">
+      <div class="bc-label">${st||'?'}</div>
+      <div class="bc-bar-wrap"><div class="bc-fill" style="width:${(rev/max*100).toFixed(1)}%;background:${colors[i%colors.length]}"></div></div>
+      <div class="bc-val">${fmtRev(rev)}</div>
+    </div>`).join(''):'<div style="font-size:12px;color:var(--text-muted)">No at-risk data yet</div>';
+}
+
+function buildPaceChart(){
+  const buckets=[
+    {label:'No orders (0%)',min:-1,max:0,color:'#dc2626'},
+    {label:'0–39% pace',min:0,max:40,color:'#ef4444'},
+    {label:'40–79% pace',min:40,max:80,color:'#d97706'},
+    {label:'80–99% pace',min:80,max:100,color:'#16a34a'},
+    {label:'100%+ pace',min:100,max:99999,color:'#059669'},
+  ];
+  const counts=buckets.map(b=>{
+    if(b.min===-1)return filteredResults.filter(r=>r.ytd===0).length;
+    return filteredResults.filter(r=>r.ytd>0&&r.paceRatio>=b.min&&r.paceRatio<b.max).length;
+  });
+  const maxC=Math.max(...counts,1);
+  document.getElementById('paceChart').innerHTML=counts.some(c=>c>0)?buckets.map((b,i)=>`
+    <div class="pf-row">
+      <div class="pf-label">${b.label}</div>
+      <div class="pf-bar-wrap"><div class="pf-fill" style="width:${(counts[i]/maxC*100).toFixed(1)}%;background:${b.color}"></div></div>
+      <div class="pf-count">${counts[i]}</div>
+    </div>`).join(''):'<div style="font-size:12px;color:var(--text-muted)">No at-risk data yet</div>';
+}
+
+function buildDashTs(){
+  const el=document.getElementById('dashTs');if(!el)return;
+  const months=getLoadedMonths();
+  if(!months.length){el.textContent='No data loaded';return;}
+  const loaded=months.map(m=>MONTHS[m-1].slice(0,3)+(monthlyFiles[m].partial?' (MTD)':'')).join(', ');
+  el.innerHTML='Loaded: <strong>'+loaded+'</strong>';
+}
+
+// ── RENDER TABLE ─────────────────────────────────────────
+function renderTable(){
+  const search=document.getElementById('tblSrch').value.toLowerCase();
+  const source=filteredResults.filter(r=>!search||r.name.toLowerCase().includes(search)||r.state.toLowerCase().includes(search)||(r.rep&&r.rep.toLowerCase().includes(search)));
+  const total=source.length;
+  const countEl=document.getElementById('atRiskCount');
+  if(countEl){countEl.textContent=total>0?'— '+total.toLocaleString()+' account'+(total===1?'':'s'):'';}
+  const pages=Math.max(1,Math.ceil(total/PAGE_SIZE));
+  if(currentPage>pages)currentPage=1;
+  const slice=source.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
+  const tbody=document.getElementById('tblBody');
+  const yearMode=document.getElementById('yearSel').value;
+  if(!slice.length){
+    tbody.innerHTML='<tr><td colspan="11"><div class="empty"><div class="ei">'+(baseline.length||Object.keys(monthlyFiles).length?'✅':'📁')+'</div><p>'+(baseline.length||Object.keys(monthlyFiles).length?'No accounts match current filters.':'Upload data in Data Sources to begin.')+'</p></div></td></tr>';
+    document.getElementById('pagBar').style.display='none';return;
+  }
+  tbody.innerHTML=slice.map(r=>{
+    const tagged=taggedAccounts.has(r.name.toLowerCase());
+    const isCA=r.country==='Canada';
+    const paceClass=r.paceRatio>=80?'good':r.paceRatio>=40?'warn':'bad';
+    const fillClass='pace-fill '+(r.paceRatio>=80?'good':r.paceRatio>=40?'warn':'bad');
+    const pctLabel=r.ytd>0?Math.round(r.paceRatio)+'%':'—';
+    const barW=r.ytd>0?Math.min(r.paceRatio,100).toFixed(0):0;
+    const mgClass=r.monthsGap>=6?'mc':r.monthsGap>=3?'mh':'mm';
+    const sel=selectedRows.has(r.name.toLowerCase());
+    const yearBadge=yearMode==='all'?(r.has2026?'<span style="font-size:9px;padding:1px 5px;background:#dcfce7;color:#15803d;border-radius:3px;margin-left:4px;border:0.5px solid #bbf7d0">2026</span>':'<span style="font-size:9px;padding:1px 5px;background:#fee2e2;color:#b91c1c;border-radius:3px;margin-left:4px;border:0.5px solid #fecaca">2025</span>'):'';
+    return `<tr class="${tagged?'tagged':''}">
+      <td><input type="checkbox" class="sel-check" ${sel?'checked':''} onchange="toggleRowSel('${esc(r.name.toLowerCase())}',this.checked)"></td>
+      <td class="an">${esc(r.name)}${yearBadge}${tagged?'<span class="otag">Flagged</span>':''}</td>
+      <td style="font-weight:600;font-size:11px">${r.state||'—'}</td>
+      <td><span class="cbadge ${isCA?'can':'usa'}">${isCA?'CAN':'USA'}</span></td>
+      <td style="font-size:11px;color:var(--text-muted)">${r.rep&&r.rep!=='—'?r.rep:'<span style="opacity:0.4">—</span>'}</td>
+      <td style="font-weight:600;font-family:var(--font-tight)">${fmtRev(r.revenue)}</td>
+      <td style="color:var(--text-muted);font-size:11px">${fmtRev(r.monthlyAvg)}/mo</td>
+      <td style="font-weight:600;font-family:var(--font-tight)">${r.ytd>0?fmtRev(r.ytd):'<span style="color:var(--red);font-size:11px">No orders</span>'}</td>
+      <td><div class="pace-wrap"><div class="pace-bar"><div class="${fillClass}" style="width:${barW}%"></div></div><span class="ppct ${paceClass}">${pctLabel}</span></div></td>
+      <td><span class="mb ${mgClass}">${r.monthsGap} mo</span></td>
+      <td><div class="ra">
+        ${tagged?`<button class="ba ba-untag" onclick="untag('${esc(r.name)}')">✕ Unflag</button>`:`<button class="ba ba-tag" onclick="tag('${esc(r.name)}')">Flag</button>`}
+      </div></td>
+    </tr>`;
+  }).join('');
+  // Pagination
+  document.getElementById('pagBar').style.display='flex';
+  document.getElementById('pagInfo').textContent='Showing '+((currentPage-1)*PAGE_SIZE+1)+'–'+Math.min(currentPage*PAGE_SIZE,total)+' of '+total;
+  const btns=document.getElementById('pagBtns');btns.innerHTML='';
+  const addPB=(lbl,pg,act)=>{const b=document.createElement('button');b.className='pb'+(act?' act':'');b.textContent=lbl;if(pg!=null)b.onclick=()=>{currentPage=pg;renderTable();};btns.appendChild(b);};
+  addPB('‹',currentPage>1?currentPage-1:null,false);
+  pgRange(currentPage,pages).forEach(p=>addPB(p==='...'?'…':p,p==='...'?null:p,p===currentPage));
+  addPB('›',currentPage<pages?currentPage+1:null,false);
+}
+function pgRange(cur,total){if(total<=7)return Array.from({length:total},(_,i)=>i+1);if(cur<=4)return[1,2,3,4,5,'...',total];if(cur>=total-3)return[1,'...',total-4,total-3,total-2,total-1,total];return[1,'...',cur-1,cur,cur+1,'...',total];}
+function sc(col){const sel=document.getElementById('sortSel');const mp={revenue:['revenue_desc','revenue_asc'],name:['name_asc','name_asc'],state:['name_asc','name_asc'],pace:['pace_asc','pace_asc'],gap:['gap_desc','gap_desc']};if(!mp[col])return;sel.value=sel.value===mp[col][0]?mp[col][1]:mp[col][0];sortResults();renderTable();}
+
+// ── TAGGING ──────────────────────────────────────────────
+function tag(name){taggedAccounts.add(name.toLowerCase());updateKPIs();renderTable();saveState('tags');showToast('Flagged: '+name,'ot');}
+function untag(name){taggedAccounts.delete(name.toLowerCase());updateKPIs();renderTable();saveState('tags');showToast('Unflagged: '+name);}
+function tagAll(){
+  const search=document.getElementById('tblSrch').value.toLowerCase();
+  const vis=filteredResults.filter(r=>!search||r.name.toLowerCase().includes(search)||r.state.toLowerCase().includes(search));
+  vis.forEach(r=>taggedAccounts.add(r.name.toLowerCase()));
+  updateKPIs();renderTable();showToast('Flagged '+vis.length+' accounts','ot');saveState('tags');
+}
+
+// ── ROW SELECTION ────────────────────────────────────────
+function toggleRowSel(nl,checked){if(checked)selectedRows.add(nl);else selectedRows.delete(nl);}
+function toggleSelAll(checked){
+  const search=document.getElementById('tblSrch').value.toLowerCase();
+  const source=filteredResults.filter(r=>!search||r.name.toLowerCase().includes(search));
+  const slice=source.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
+  slice.forEach(r=>checked?selectedRows.add(r.name.toLowerCase()):selectedRows.delete(r.name.toLowerCase()));
+  renderTable();
+}
+
+// ── EXPORT ───────────────────────────────────────────────
+function buildCSV(rows){
+  const lm=getLoadedMonths();
+  const monthLabel=lm.map(m=>MONTHS[m-1].slice(0,3)).join('+');
+  const hdrs=['Account Name','State/Province','Country','Sales Rep','2025 Annual Revenue','Avg Monthly Rate','2026 YTD Revenue'+(monthLabel?'('+monthLabel+')':''),'2026 Pace (%)','Silent Months','Flagged'];
+  const data=[hdrs,...rows.map(r=>[r.name,r.state,r.country,r.rep||'',r.revenue,Math.round(r.monthlyAvg),r.ytd,r.ytd>0?Math.round(r.paceRatio):0,r.monthsGap,taggedAccounts.has(r.name.toLowerCase())?'Yes':'No'])];
+  return data.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
+}
+function downloadCSV(csv,suffix){
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='nrt-at-risk-'+suffix+'-'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+}
+function exportCSV(){
+  if(!filteredResults.length){showToast('No data to export.','err');return;}
+  downloadCSV(buildCSV(filteredResults),'all');showToast('⬇ Exported '+filteredResults.length+' accounts');
+}
+function exportSelected(){
+  const sel=filteredResults.filter(r=>selectedRows.has(r.name.toLowerCase()));
+  if(!sel.length){showToast('Select rows first using the checkboxes.','err');return;}
+  downloadCSV(buildCSV(sel),'selected');showToast('⬇ Exported '+sel.length+' selected accounts');
+}
+
+// ── TOAST ────────────────────────────────────────────────
+let _toastTimer;
+function showToast(msg,type=''){
+  const t=document.getElementById('toast');t.textContent=msg;t.className='toast show'+(type?' '+type:'');
+  clearTimeout(_toastTimer);_toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// ── DEFAULT GAP FILTER ───────────────────────────────────
+function setDefaultGap(){
+  const months=getLoadedMonths();
+  if(!months.length)return;
+  const sel=document.getElementById('gapSel');if(!sel)return;
+  const n=months.length;
+  const opt=[...sel.options].find(o=>parseInt(o.value)===n);
+  if(opt)sel.value=String(n);
+}
+
+// ── SUPABASE PERSISTENCE ──────────────────────────────────
+const SB_URL='https://thxuehrhmtskwtboggsh.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRoeHVlaHJobXRza3d0Ym9nZ3NoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MTA0MTAsImV4cCI6MjA4ODk4NjQxMH0.Ehtz1UDbI3pV8QwAlVLtR_DS92B9twWj1tuFU-20wpE';
+
+async function sbFetch(path,opts={}){
+  const r=await fetch(SB_URL+'/rest/v1/'+path,{
+    ...opts,
+    headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal',...(opts.headers||{})}
+  });
+  if(r.status===204||r.status===200){try{return await r.json();}catch{return null;}}
+  return null;
+}
+
+let _saveTimer={};
+function saveState(scope){
+  clearTimeout(_saveTimer[scope]);
+  _saveTimer[scope]=setTimeout(()=>_doSave(scope),600);
+}
+
+async function _doSave(scope){
+  try{
+    if(scope==='baseline'){
+      await sbFetch('nrt_baseline?id=gt.0',{method:'DELETE'});
+      if(baseline.length){
+        const chunks=[];for(let i=0;i<baseline.length;i+=500)chunks.push(baseline.slice(i,i+500));
+        for(const ch of chunks)await sbFetch('nrt_baseline',{method:'POST',headers:{'Prefer':'return=minimal'},body:JSON.stringify(ch)});
+      }
+      await sbFetch('nrt_meta',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify({key:'baseline_ts',value:now()})});
+    } else if(scope==='reps'){
+      await sbFetch('nrt_reps?id=gt.0',{method:'DELETE'});
+      const rows=Object.entries(repMap).map(([state,rep])=>({state,rep}));
+      if(rows.length)await sbFetch('nrt_reps',{method:'POST',body:JSON.stringify(rows)});
+    } else if(scope==='tags'){
+      await sbFetch('nrt_tags?id=gt.0',{method:'DELETE'});
+      const rows=[...taggedAccounts].map(name=>({name}));
+      if(rows.length)await sbFetch('nrt_tags',{method:'POST',body:JSON.stringify(rows)});
+    } else if(typeof scope==='number'){
+      const mn=scope;
+      await sbFetch('nrt_monthly?month_num=eq.'+mn,{method:'DELETE'});
+      const mf=monthlyFiles[mn];
+      if(mf&&mf.accounts.length){
+        const rows=mf.accounts.map(a=>({month_num:mn,name:a.name,rev:a.rev,state:a.state||'',ts:mf.ts||'',partial:mf.partial?true:false}));
+        const chunks=[];for(let i=0;i<rows.length;i+=500)chunks.push(rows.slice(i,i+500));
+        for(const ch of chunks)await sbFetch('nrt_monthly',{method:'POST',body:JSON.stringify(ch)});
+        await sbFetch('nrt_meta',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify({key:'month_'+mn+'_ts',value:mf.ts||''})});
+        await sbFetch('nrt_meta',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify({key:'month_'+mn+'_partial',value:String(mf.partial||false)})});
+      }
+    }
+  }catch(e){console.warn('NRT: save failed',e);}
+}
+
+async function loadState(){
+  try{
+    const [blRows,monthRows,repRows,tagRows,metaRows]=await Promise.all([
+      sbFetch('nrt_baseline?select=*&limit=5000'),
+      sbFetch('nrt_monthly?select=*&limit=50000'),
+      sbFetch('nrt_reps?select=*&limit=500'),
+      sbFetch('nrt_tags?select=*&limit=5000'),
+      sbFetch('nrt_meta?select=*')
+    ]);
+    const meta={};(metaRows||[]).forEach(r=>{meta[r.key]=r.value;});
+
+    if(Array.isArray(blRows)&&blRows.length){
+      baseline=blRows.map(r=>({name:r.name,state:r.state,country:r.country||'USA',revenue:parseFloat(r.revenue)||0}));
+      if(meta.baseline_ts)document.getElementById('blStatus').textContent='✓ '+baseline.length+' accounts — loaded from shared DB';
+      document.getElementById('blStatus').className='file-status ok';
+    }
+    if(Array.isArray(repRows)&&repRows.length){
+      repMap={};repRows.forEach(r=>{repMap[r.state]=r.rep;});
+      document.getElementById('repStatus').textContent='✓ '+repRows.length+' state assignments';
+      document.getElementById('repStatus').className='file-status ok';
+    }
+    if(Array.isArray(monthRows)&&monthRows.length){
+      const grouped={};
+      monthRows.forEach(r=>{
+        const mn=r.month_num;
+        if(!grouped[mn])grouped[mn]={accounts:[],ts:'',partial:false};
+        grouped[mn].accounts.push({name:r.name,rev:parseFloat(r.rev)||0,state:r.state||''});
+      });
+      Object.keys(grouped).forEach(mn=>{
+        const p=meta['month_'+mn+'_partial'];if(p!==undefined)grouped[mn].partial=(p==='true');
+        const ts=meta['month_'+mn+'_ts'];if(ts)grouped[mn].ts=ts;
+      });
+      monthlyFiles=grouped;
+      const loaded=Object.keys(monthlyFiles).map(Number).sort((a,b)=>b-a);
+      if(loaded.length)document.getElementById('tsMonthly').textContent=MONTHS[loaded[0]-1]+' — '+monthlyFiles[loaded[0]].ts;
+    }
+    if(Array.isArray(tagRows)&&tagRows.length)taggedAccounts=new Set(tagRows.map(r=>r.name));
+
+    rebuildRepFilter();setDefaultGap();buildMonthlyGrids();applyFilters();refreshDashboard();
+    const hasData=baseline.length||Object.keys(monthlyFiles).length;
+    showToast(hasData?'✓ Data loaded — shared across all stations':'✓ Connected — upload data to begin');
+  }catch(e){console.warn('NRT: loadState failed',e);showToast('⚠ Could not reach database.','err');}
+}
+
+async function clearState(){
+  if(currentRole!=='admin'){showToast('Clear Data is Admin only.','err');return;}
+  if(!confirm('Clear ALL shared data for all stations? This cannot be undone.'))return;
+  showToast('Clearing…');
+  try{
+    await Promise.all([
+      sbFetch('nrt_baseline?id=gt.0',{method:'DELETE'}),
+      sbFetch('nrt_monthly?id=gt.0',{method:'DELETE'}),
+      sbFetch('nrt_reps?id=gt.0',{method:'DELETE'}),
+      sbFetch('nrt_tags?id=gt.0',{method:'DELETE'}),
+      sbFetch('nrt_meta?key=neq.placeholder',{method:'DELETE'})
+    ]);
+  }catch(e){console.warn('NRT: clearState failed',e);}
+  baseline=[];repMap={};monthlyFiles={};taggedAccounts=new Set();selectedRows=new Set();
+  document.getElementById('blStatus').textContent='No file loaded';document.getElementById('blStatus').className='file-status';
+  document.getElementById('repStatus').textContent='No file loaded (optional)';document.getElementById('repStatus').className='file-status';
+  document.getElementById('tsMonthly').textContent='—';
+  rebuildRepFilter();buildMonthlyGrids();applyFilters();refreshDashboard();
+  showToast('All data cleared');
+}
+
+// ── INIT ─────────────────────────────────────────────────
+const _authReady=!!getSession();
+buildOpts('');buildMonthlyGrids();
+if(_authReady){loadState();}
+</script>
+</body>
+</html>
