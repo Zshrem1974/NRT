@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NRT V4.0 Ã¢ÂÂ Account Retention Platform</title>
+<title>NRT V4.0 ÃÂ¢ÃÂÃÂ Account Retention Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -43,7 +43,7 @@
 html{font-size:14px}
 body{font-family:var(--font);background:var(--gray-100);color:var(--text);min-height:100vh;overflow-x:hidden}
 
-/* Ã¢ÂÂÃ¢ÂÂ LOGIN OVERLAY Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ LOGIN OVERLAY ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 #loginOverlay{position:fixed;inset:0;background:rgba(17,17,17,0.92);backdrop-filter:blur(12px);z-index:9000;display:flex;align-items:center;justify-content:center}
 .login-box{width:360px;max-width:92vw;background:var(--white);border-radius:16px;padding:2rem;box-shadow:0 24px 64px rgba(0,0,0,0.3)}
 .login-logo{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
@@ -60,7 +60,7 @@ body{font-family:var(--font);background:var(--gray-100);color:var(--text);min-he
 .login-btn{width:100%;padding:0.65rem;background:var(--black);border:none;border-radius:var(--radius);color:#fff;font-family:var(--font-tight);font-size:14px;font-weight:600;cursor:pointer;transition:background 0.15s;letter-spacing:0.01em}
 .login-btn:hover{background:#2a2a2a}
 
-/* Ã¢ÂÂÃ¢ÂÂ HEADER Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ HEADER ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 header{position:sticky;top:0;z-index:60;background:var(--black);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
 .hdr-logo{display:flex;align-items:center;gap:9px}
 .hdr-gem{width:36px;height:22px;background:var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;font-family:var(--font-tight);color:#fff;letter-spacing:0.4px}
@@ -76,26 +76,26 @@ header{position:sticky;top:0;z-index:60;background:var(--black);height:52px;disp
 #roleBadge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6)}
 #roleBadge:hover{border-color:rgba(255,255,255,0.25);color:#fff}
 
-/* Ã¢ÂÂÃ¢ÂÂ TAB BAR Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ TAB BAR ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .tab-bar{background:var(--white);border-bottom:1px solid var(--border);display:flex;padding:0 1.5rem;position:sticky;top:52px;z-index:50}
 .tab{padding:11px 16px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s;user-select:none;white-space:nowrap}
 .tab:hover{color:var(--text)}
 .tab.active{color:var(--red);border-bottom-color:var(--red)}
 .tab.locked{opacity:0.4;cursor:not-allowed}
-.tab.locked::after{content:'Ã°ÂÂÂ';font-size:9px;margin-left:4px}
+.tab.locked::after{content:'ÃÂ°ÃÂÃÂÃÂ';font-size:9px;margin-left:4px}
 
-/* Ã¢ÂÂÃ¢ÂÂ CONTAINER Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ CONTAINER ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .container{max-width:1440px;margin:0 auto;padding:1.25rem 1.5rem}
 .tab-panel{display:none}.tab-panel.active{display:block}
 
-/* Ã¢ÂÂÃ¢ÂÂ CARDS Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ CARDS ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg)}
 .card-p{padding:1.1rem 1.25rem}
 
-/* Ã¢ÂÂÃ¢ÂÂ SECTION LABEL Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ SECTION LABEL ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .slabel{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
 
-/* Ã¢ÂÂÃ¢ÂÂ KPI GRID Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ KPI GRID ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1rem}
 .kpi{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px}
 .kpi-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
@@ -107,7 +107,7 @@ header{position:sticky;top:0;z-index:60;background:var(--black);height:52px;disp
 .kpi-sub{font-size:11px;color:var(--text-hint);margin-top:4px}
 @media(max-width:700px){.kpi-grid{grid-template-columns:1fr 1fr}}
 
-/* Ã¢ÂÂÃ¢ÂÂ TOP 5 Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ TOP 5 ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .top5-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:1rem}
 .top5-card{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:12px 14px}
 .top5-rank{font-size:11px;font-weight:700;font-family:var(--font-tight);margin-bottom:6px}
@@ -119,7 +119,7 @@ header{position:sticky;top:0;z-index:60;background:var(--black);height:52px;disp
 @media(max-width:900px){.top5-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.top5-grid{grid-template-columns:1fr 1fr}}
 
-/* Ã¢ÂÂÃ¢ÂÂ CHARTS Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ CHARTS ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
 .bc-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
 .bc-label{font-size:11px;font-weight:600;color:var(--text-muted);width:28px;text-align:right;flex-shrink:0}
@@ -132,7 +132,7 @@ header{position:sticky;top:0;z-index:60;background:var(--black);height:52px;disp
 .pf-fill{height:100%;border-radius:4px}
 .pf-count{font-size:11px;color:var(--text-muted);width:24px;text-align:right}
 
-/* Ã¢ÂÂÃ¢ÂÂ MONTHLY STATUS GRID Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ MONTHLY STATUS GRID ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .monthly-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
 .month-slot{background:var(--gray-50);border:0.5px solid var(--border);border-radius:var(--radius);padding:8px 10px;font-size:11px}
 .month-slot.has-data{background:#fff5f5;border-color:var(--red-border)}
@@ -146,13 +146,13 @@ header{position:sticky;top:0;z-index:60;background:var(--black);height:52px;disp
 .m-type-btn.sel-partial{border-color:rgba(217,119,6,0.3);color:var(--amber);background:var(--amber-dim)}
 @media(max-width:700px){.monthly-grid{grid-template-columns:repeat(3,1fr)}}
 
-/* Ã¢ÂÂÃ¢ÂÂ FILTERS BAR Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ FILTERS BAR ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .filters-bar{background:var(--white);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:1rem;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
 .fg{display:flex;flex-direction:column;gap:4px}
 .fg label{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)}
 select,.sel-fake{background:var(--white);border:0.5px solid var(--border-strong);border-radius:var(--radius);color:var(--text);font-family:var(--font);font-size:13px;padding:6px 10px;outline:none;cursor:pointer;transition:border-color 0.15s;appearance:none;min-width:100px}
 select:focus{border-color:var(--red)}
-.sw{position:relative}.sw::after{content:'Ã¢ÂÂ¾';position:absolute;right:8px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;font-size:10px}
+.sw{position:relative}.sw::after{content:'ÃÂ¢ÃÂÃÂ¾';position:absolute;right:8px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;font-size:10px}
 .btn-apply{padding:7px 16px;background:var(--black);border:none;border-radius:var(--radius);color:#fff;font-family:var(--font-tight);font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;letter-spacing:0.02em;align-self:flex-end}
 .btn-apply:hover{background:#2a2a2a}
 
@@ -170,7 +170,7 @@ select:focus{border-color:var(--red)}
 .dd-opt.sp{color:var(--red);font-weight:600;border-bottom:0.5px solid var(--border)}
 .dd-opt input[type=checkbox]{accent-color:var(--red);width:13px;height:13px;cursor:pointer;flex-shrink:0}
 
-/* Ã¢ÂÂÃ¢ÂÂ TABLE SECTION Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ TABLE SECTION ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .tbl-section{overflow:hidden}
 .tbl-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:0.5px solid var(--border);flex-wrap:wrap;gap:8px}
 .tbl-title{font-size:14px;font-weight:600;font-family:var(--font-tight);color:var(--text)}
@@ -226,7 +226,7 @@ tbody tr.tagged:hover td{background:#fef9e7}
 .pb{padding:3px 7px;border-radius:5px;border:0.5px solid var(--border);background:var(--white);color:var(--text-muted);font-family:var(--font);font-size:11px;cursor:pointer;transition:all 0.12s}
 .pb:hover,.pb.act{border-color:var(--red-border);color:var(--red);background:var(--red-dim)}
 
-/* Ã¢ÂÂÃ¢ÂÂ DATA SOURCES Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ DATA SOURCES ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .ds-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem}
 .ds-card{padding:14px 16px}
 .ds-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
@@ -235,16 +235,16 @@ tbody tr.tagged:hover td{background:#fef9e7}
 .btn-upload{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:var(--radius);border:0.5px solid var(--red-border);background:var(--red-dim);color:var(--red);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:background 0.15s;white-space:nowrap}
 .btn-upload:hover{background:rgba(220,38,38,0.18)}
 .file-status{font-size:11px;color:var(--text-muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.file-status.ok{color:var(--green)}.file-status.ok::before{content:'Ã¢ÂÂ  '}
+.file-status.ok{color:var(--green)}.file-status.ok::before{content:'ÃÂ¢ÃÂÃÂ  '}
 .file-status.err{color:var(--red)}
 input[type="file"]{display:none}
 
-/* Ã¢ÂÂÃ¢ÂÂ TOAST Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ TOAST ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 .toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--black);color:#fff;border-radius:var(--radius);padding:10px 16px;font-size:12px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:9999;opacity:0;transform:translateY(6px);transition:all 0.2s;pointer-events:none}
 .toast.show{opacity:1;transform:translateY(0)}
 .toast.ok{background:var(--green)}.toast.err{background:var(--red)}.toast.ot{background:var(--amber)}
 
-/* Ã¢ÂÂÃ¢ÂÂ RESPONSIVE Ã¢ÂÂÃ¢ÂÂ */
+/* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ RESPONSIVE ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
 @media(max-width:700px){.container{padding:1rem}.filters-bar{flex-direction:column}.charts-row{grid-template-columns:1fr}.ds-grid{grid-template-columns:1fr}.kpi-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -258,11 +258,11 @@ input[type="file"]{display:none}
       <div class="login-brand">NRT <span>V4.0</span></div>
     </div>
     <div class="login-title">Account Retention Platform</div>
-    <div class="login-sub">Dental Implant Industry ÃÂ· USA &amp; Canada</div>
+    <div class="login-sub">Dental Implant Industry &middot; USA &amp; Canada</div>
     <label class="login-label" for="loginPwd">Password</label>
-    <input type="password" id="loginPwd" class="login-input" placeholder="Enter your passwordÃ¢ÂÂ¦" onkeydown="if(event.key==='Enter')doLogin()">
+    <input type="password" id="loginPwd" class="login-input" placeholder="Enter your passwordÃÂ¢ÃÂÃÂ¦" onkeydown="if(event.key==='Enter')doLogin()">
     <div class="login-err" id="loginErr"></div>
-    <button class="login-btn" onclick="doLogin()">Sign In Ã¢ÂÂ</button>
+    <button class="login-btn" onclick="doLogin()">Sign In ÃÂ¢ÃÂÃÂ</button>
   </div>
 </div>
 
@@ -275,36 +275,36 @@ input[type="file"]{display:none}
   <div class="hdr-center">
     <div class="hdr-pill"><div class="dot" style="background:#ef4444"></div><span id="hdrAtRisk">0 at risk</span></div>
     <div class="hdr-pill"><div class="dot" style="background:var(--amber)"></div><span id="hdrTagged">0 tagged</span></div>
-    <button id="roleBadge" onclick="showLogout()">Ã°ÂÂÂ Admin</button>
+    <button id="roleBadge" onclick="showLogout()">ÃÂ°ÃÂÃÂÃÂ Admin</button>
   </div>
   <div class="hdr-right">
-    <div>Last upload: <strong id="tsMonthly">Ã¢ÂÂ</strong></div>
-    <button id="clearDataBtn" onclick="clearState()">Ã¢ÂÂ Clear Data</button>
+    <div>Last upload: <strong id="tsMonthly">ÃÂ¢ÃÂÃÂ</strong></div>
+    <button id="clearDataBtn" onclick="clearState()">ÃÂ¢ÃÂÃÂ Clear Data</button>
   </div>
 </header>
 
 <!-- TAB BAR -->
 <div class="tab-bar">
-  <div class="tab active" onclick="switchTab('dashboard')">Ã°ÂÂÂ Dashboard</div>
-  <div class="tab" onclick="switchTab('accounts')">Ã°ÂÂÂ¯ At-Risk Accounts</div>
-  <div class="tab" id="dataTab" style="margin-left:auto" onclick="switchTab('data')">Ã°ÂÂÂ Data Sources</div>
+  <div class="tab active" onclick="switchTab('dashboard')">ÃÂ°ÃÂÃÂÃÂ Dashboard</div>
+  <div class="tab" onclick="switchTab('accounts')">ÃÂ°ÃÂÃÂÃÂ¯ At-Risk Accounts</div>
+  <div class="tab" id="dataTab" style="margin-left:auto" onclick="switchTab('data')">ÃÂ°ÃÂÃÂÃÂ Data Sources</div>
 </div>
 
 <div class="container">
 
-<!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ DASHBOARD TAB Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
+<!-- ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ DASHBOARD TAB ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ -->
 <div class="tab-panel active" id="tab-dashboard">
 
   <!-- DASH HERO -->
   <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:8px;margin-top:0.25rem">
     <div>
       <div style="font-size:18px;font-weight:700;font-family:var(--font-tight);color:var(--text);letter-spacing:-0.3px">NRT <span style="color:var(--red);font-weight:400">V4.0</span></div>
-      <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Account Retention ÃÂ· Dental Implants ÃÂ· USA &amp; Canada</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Account Retention &middot; Dental Implants &middot; USA &amp; Canada</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <div id="dashAlertPill" style="display:none;align-items:center;gap:5px;background:var(--red-dim);border:1px solid var(--red-border);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;color:var(--red)">
         <span style="width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block"></span>
-        <span id="dashAlertTxt">Ã¢ÂÂ accounts at risk</span>
+        <span id="dashAlertTxt">ÃÂ¢ÃÂÃÂ accounts at risk</span>
       </div>
       <div style="font-size:11px;color:var(--text-muted);text-align:right;line-height:1.7" id="dashTs">No data loaded</div>
     </div>
@@ -314,22 +314,22 @@ input[type="file"]{display:none}
   <div class="kpi-grid">
     <div class="kpi" style="border-top:3px solid var(--red)">
       <div class="kpi-label">Not purchasing</div>
-      <div class="kpi-val red" id="kAtRisk">Ã¢ÂÂ</div>
+      <div class="kpi-val red" id="kAtRisk">ÃÂ¢ÃÂÃÂ</div>
       <div class="kpi-sub" id="kAtRiskSub">Silent accounts</div>
     </div>
     <div class="kpi" style="border-top:3px solid var(--amber)">
       <div class="kpi-label">Revenue at risk</div>
-      <div class="kpi-val amber" id="kRevenue">Ã¢ÂÂ</div>
+      <div class="kpi-val amber" id="kRevenue">ÃÂ¢ÃÂÃÂ</div>
       <div class="kpi-sub">2025 baseline value</div>
     </div>
     <div class="kpi" style="border-top:3px solid var(--green)">
       <div class="kpi-label">Active in 2026</div>
-      <div class="kpi-val green" id="kActive">Ã¢ÂÂ</div>
+      <div class="kpi-val green" id="kActive">ÃÂ¢ÃÂÃÂ</div>
       <div class="kpi-sub">Purchasing all months</div>
     </div>
     <div class="kpi" style="border-top:3px solid var(--gray-300)">
       <div class="kpi-label">Baseline accounts</div>
-      <div class="kpi-val muted" id="kTotal">Ã¢ÂÂ</div>
+      <div class="kpi-val muted" id="kTotal">ÃÂ¢ÃÂÃÂ</div>
       <div class="kpi-sub">2025 total</div>
     </div>
   </div>
@@ -360,7 +360,7 @@ input[type="file"]{display:none}
 
 </div><!-- /dashboard -->
 
-<!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ ACCOUNTS TAB Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
+<!-- ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ ACCOUNTS TAB ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ -->
 <div class="tab-panel" id="tab-accounts">
 
   <!-- FILTERS -->
@@ -378,10 +378,10 @@ input[type="file"]{display:none}
       <label>State / Province</label>
       <div class="msw" id="stateWrap">
         <div class="ms-btn" id="stateBtn" onclick="toggleDD()">
-          <span id="stateLbl">All States &amp; Provinces</span><span class="chv">Ã¢ÂÂ¾</span>
+          <span id="stateLbl">All States &amp; Provinces</span><span class="chv">ÃÂ¢ÃÂÃÂ¾</span>
         </div>
         <div class="ms-dd" id="stateDD">
-          <input type="text" class="dd-search" id="ddSrch" placeholder="Search stateÃ¢ÂÂ¦" oninput="buildOpts(this.value)">
+          <input type="text" class="dd-search" id="ddSrch" placeholder="Search stateÃÂ¢ÃÂÃÂ¦" oninput="buildOpts(this.value)">
           <div id="ddOpts"></div>
         </div>
       </div>
@@ -411,11 +411,11 @@ input[type="file"]{display:none}
     <div class="fg" style="max-width:170px">
       <label>Sort By</label>
       <div class="sw"><select id="sortSel" onchange="applyFilters()">
-        <option value="revenue_desc">Revenue Ã¢ÂÂ (Highest)</option>
-        <option value="revenue_asc">Revenue Ã¢ÂÂ</option>
-        <option value="pace_asc">Pace % Ã¢ÂÂ (Most at-risk)</option>
-        <option value="gap_desc">Silent Months Ã¢ÂÂ</option>
-        <option value="name_asc">Account AÃ¢ÂÂZ</option>
+        <option value="revenue_desc">Revenue ÃÂ¢ÃÂÃÂ (Highest)</option>
+        <option value="revenue_asc">Revenue ÃÂ¢ÃÂÃÂ</option>
+        <option value="pace_asc">Pace % ÃÂ¢ÃÂÃÂ (Most at-risk)</option>
+        <option value="gap_desc">Silent Months ÃÂ¢ÃÂÃÂ</option>
+        <option value="name_asc">Account AÃÂ¢ÃÂÃÂZ</option>
       </select></div>
     </div>
     <button class="btn-apply" onclick="applyFilters()">Apply Filters</button>
@@ -429,10 +429,10 @@ input[type="file"]{display:none}
         <span id="atRiskCount"></span>
       </div>
       <div class="tbl-acts">
-        <input type="text" class="srch" id="tblSrch" placeholder="Ã°ÂÂÂ Search accountsÃ¢ÂÂ¦" oninput="renderTable()">
+        <input type="text" class="srch" id="tblSrch" placeholder="ÃÂ°ÃÂÃÂÃÂ Search accountsÃÂ¢ÃÂÃÂ¦" oninput="renderTable()">
         <button class="btn-sm" onclick="tagAll()">Flag All Visible</button>
-        <button class="btn-sm red" onclick="exportSelected()">Ã¢Â¬Â Export Selected</button>
-        <button class="btn-sm primary" onclick="exportCSV()">Ã¢Â¬Â Export All</button>
+        <button class="btn-sm red" onclick="exportSelected()">ÃÂ¢ÃÂ¬ÃÂ Export Selected</button>
+        <button class="btn-sm primary" onclick="exportCSV()">ÃÂ¢ÃÂ¬ÃÂ Export All</button>
       </div>
     </div>
     <div style="overflow-x:auto">
@@ -451,7 +451,7 @@ input[type="file"]{display:none}
           <th style="min-width:100px">Actions</th>
         </tr></thead>
         <tbody id="tblBody">
-          <tr><td colspan="11"><div class="empty"><div class="ei">Ã°ÂÂÂ</div><p>Upload data in Data Sources to begin.</p><p class="eh">Supported: CSV, XLS, XLSX</p></div></td></tr>
+          <tr><td colspan="11"><div class="empty"><div class="ei">ÃÂ°ÃÂÃÂÃÂ</div><p>Upload data in Data Sources to begin.</p><p class="eh">Supported: CSV, XLS, XLSX</p></div></td></tr>
         </tbody>
       </table>
     </div>
@@ -463,35 +463,35 @@ input[type="file"]{display:none}
 
 </div><!-- /accounts -->
 
-<!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ DATA SOURCES TAB Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
+<!-- ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ DATA SOURCES TAB ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ -->
 <div class="tab-panel" id="tab-data">
 
   <div class="slabel" style="margin-top:0.25rem">2025 Baseline</div>
   <div class="ds-grid" style="grid-template-columns:1fr 1fr;margin-bottom:1.25rem">
     <div class="card ds-card">
-      <div class="ds-title">Ã°ÂÂÂ 2025 Baseline Accounts</div>
+      <div class="ds-title">ÃÂ°ÃÂÃÂÃÂ 2025 Baseline Accounts</div>
       <div class="ds-sub">Columns: <em>Account Name, State, Annual Revenue</em></div>
       <div class="ds-row">
-        <button class="btn-upload" onclick="document.getElementById('blFile').click()">Ã¢Â¬Â Upload CSV / XLS / XLSX</button>
+        <button class="btn-upload" onclick="document.getElementById('blFile').click()">ÃÂ¢ÃÂ¬ÃÂ Upload CSV / XLS / XLSX</button>
         <input type="file" id="blFile" accept=".csv,.xlsx,.xls" onchange="handleFile(this,'baseline')">
         <span class="file-status" id="blStatus">No file loaded</span>
       </div>
     </div>
     <div class="card ds-card">
-      <div class="ds-title">Ã°ÂÂÂ¤ State Ã¢ÂÂ Rep Assignment</div>
-      <div class="ds-sub">Columns: <em>State, Rep Name</em> Ã¢ÂÂ one rep owns all accounts in a state</div>
+      <div class="ds-title">ÃÂ°ÃÂÃÂÃÂ¤ State ÃÂ¢ÃÂÃÂ Rep Assignment</div>
+      <div class="ds-sub">Columns: <em>State, Rep Name</em> ÃÂ¢ÃÂÃÂ one rep owns all accounts in a state</div>
       <div class="ds-row">
-        <button class="btn-upload" onclick="document.getElementById('repFile').click()">Ã¢Â¬Â Upload CSV / XLS / XLSX</button>
+        <button class="btn-upload" onclick="document.getElementById('repFile').click()">ÃÂ¢ÃÂ¬ÃÂ Upload CSV / XLS / XLSX</button>
         <input type="file" id="repFile" accept=".csv,.xlsx,.xls" onchange="handleFile(this,'reps')">
         <span class="file-status" id="repStatus">No file loaded (optional)</span>
       </div>
     </div>
   </div>
 
-  <div class="slabel">2026 Monthly Sales Files Ã¢ÂÂ Upload Each Month Separately</div>
+  <div class="slabel">2026 Monthly Sales Files ÃÂ¢ÃÂÃÂ Upload Each Month Separately</div>
   <div class="card" style="padding:14px 16px;margin-bottom:1rem">
     <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;line-height:1.6">
-      Upload one file per month. Each file = that month's sales only (e.g. March file = March 1Ã¢ÂÂ15 only). Platform accumulates them to build true 2026 YTD per account.<br>
+      Upload one file per month. Each file = that month's sales only (e.g. March file = March 1ÃÂ¢ÃÂÃÂ15 only). Platform accumulates them to build true 2026 YTD per account.<br>
       Columns: <em>Account Name, State, Revenue</em>
     </div>
     <div class="monthly-grid" id="monthlyUploadGrid"></div>
@@ -506,7 +506,7 @@ input[type="file"]{display:none}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-// Ã¢ÂÂÃ¢ÂÂ AUTH Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ AUTH ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 const ADMIN_PW='NorisNRT2026!';
 const VIEWER_PW='NorisLeaders2026';
 const SESSION_KEY='nrt4_auth';
@@ -537,12 +537,12 @@ function applyRole(role){
   const dataTab=document.getElementById('dataTab');
   const clearBtn=document.getElementById('clearDataBtn');
   if(role==='admin'){
-    badge.textContent='Ã°ÂÂÂ Admin';
+    badge.textContent='💻';badge.style.color='#16a34a';badge.style.border='none';badge.style.background='transparent';
     dataTab.classList.remove('locked');
     dataTab.onclick=()=>switchTab('data');
     if(clearBtn)clearBtn.style.display='';
   } else {
-    badge.textContent='Ã°ÂÂÂ Viewer';
+    badge.textContent='👁';badge.style.color='#dc2626';badge.style.border='none';badge.style.background='transparent';
     dataTab.classList.add('locked');
     dataTab.onclick=()=>showToast('Data Sources is Admin only.','err');
     if(clearBtn)clearBtn.style.display='none';
@@ -553,12 +553,12 @@ function showLogout(){if(confirm('Sign out of NRT V4.0?')){clearSession();curren
 // Init auth
 (function(){const s=getSession();if(s){applyRole(s.role);document.getElementById('loginOverlay').style.display='none';}})();
 
-// Ã¢ÂÂÃ¢ÂÂ CONSTANTS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ CONSTANTS ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 const USA={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 const CAN={AB:'Alberta',BC:'British Columbia',MB:'Manitoba',NB:'New Brunswick',NL:'Newfoundland and Labrador',NS:'Nova Scotia',ON:'Ontario',PE:'Prince Edward Island',QC:'Quebec',SK:'Saskatchewan'};
 const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-// Ã¢ÂÂÃ¢ÂÂ DATA STATE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ DATA STATE ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 let baseline=[];        // [{name,state,country,revenue}]
 let repMap={};          // {state_upper: repName}
 let monthlyFiles={};    // {1:{accounts:[{name,rev}],ts,partial},2:...}
@@ -569,7 +569,7 @@ let selectedRows=new Set();
 let currentPage=1;
 const PAGE_SIZE=25;
 
-// Ã¢ÂÂÃ¢ÂÂ TABS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ TABS ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function switchTab(id){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
@@ -582,7 +582,7 @@ function switchTab(id){
   if(id==='accounts')applyFilters();
 }
 
-// Ã¢ÂÂÃ¢ÂÂ STATE DROPDOWN Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ STATE DROPDOWN ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function toggleDD(){const dd=document.getElementById('stateDD');dd.classList.toggle('open');if(dd.classList.contains('open'))document.getElementById('ddSrch').focus();}
 document.addEventListener('click',e=>{const w=document.getElementById('stateWrap');if(w&&!w.contains(e.target))document.getElementById('stateDD').classList.remove('open');});
 function buildOpts(q){
@@ -590,9 +590,9 @@ function buildOpts(q){
   [{v:'__ALL__',l:'All States & Provinces'},{v:'__USA__',l:'USA (All)'},{v:'__CAN__',l:'Canada (All)'}]
     .forEach(s=>{if(!q||s.l.toLowerCase().includes(q))addOpt(c,s.v,s.l,true);});
   const ue=Object.entries(USA).filter(([k,v])=>!q||k.toLowerCase().includes(q)||v.toLowerCase().includes(q));
-  if(ue.length){const g=document.createElement('div');g.className='dd-gl';g.textContent='USA States';c.appendChild(g);ue.forEach(([k,v])=>addOpt(c,k,k+' Ã¢ÂÂ '+v,false));}
+  if(ue.length){const g=document.createElement('div');g.className='dd-gl';g.textContent='USA States';c.appendChild(g);ue.forEach(([k,v])=>addOpt(c,k,k+' ÃÂ¢ÃÂÃÂ '+v,false));}
   const ce=Object.entries(CAN).filter(([k,v])=>!q||k.toLowerCase().includes(q)||v.toLowerCase().includes(q));
-  if(ce.length){const g=document.createElement('div');g.className='dd-gl';g.textContent='Canadian Provinces';c.appendChild(g);ce.forEach(([k,v])=>addOpt(c,k,k+' Ã¢ÂÂ '+v,false));}
+  if(ce.length){const g=document.createElement('div');g.className='dd-gl';g.textContent='Canadian Provinces';c.appendChild(g);ce.forEach(([k,v])=>addOpt(c,k,k+' ÃÂ¢ÃÂÃÂ '+v,false));}
   updateStateLabel();
 }
 function addOpt(c,val,label,special){
@@ -617,7 +617,7 @@ function updateStateLabel(){
   else{const arr=[...selectedStates].filter(s=>!s.startsWith('__'));el.textContent=arr.length<=2?arr.join(', '):arr.length+' selected';}
 }
 
-// Ã¢ÂÂÃ¢ÂÂ MONTHLY GRIDS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ MONTHLY GRIDS ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function buildMonthlyGrids(){
   const sg=document.getElementById('monthlyStatusGrid');
   const ug=document.getElementById('monthlyUploadGrid');
@@ -625,7 +625,7 @@ function buildMonthlyGrids(){
     const n=i+1;const d=monthlyFiles[n];
     return `<div class="month-slot${d?' has-data':''}">
       <div class="m-name">${m.slice(0,3)}</div>
-      ${d?`<div class="m-count">${d.accounts.length}</div><div class="m-ts">${d.ts||''}</div>`:'<div style="font-size:10px;color:var(--text-hint);margin-top:2px">Ã¢ÂÂ</div>'}
+      ${d?`<div class="m-count">${d.accounts.length}</div><div class="m-ts">${d.ts||''}</div>`:'<div style="font-size:10px;color:var(--text-hint);margin-top:2px">ÃÂ¢ÃÂÃÂ</div>'}
     </div>`;
   }).join('');
   if(ug)ug.innerHTML=MONTHS.map((m,i)=>{
@@ -639,7 +639,7 @@ function buildMonthlyGrids(){
           <button class="m-type-btn ${isPartial?'sel-partial':''}" onclick="setMonthType(${n},true)">MTD</button>
         </div>
         <div class="m-ts">${d.ts||''}</div>`:''}
-      <button class="${d?'btn-upload':'btn-upload'}" style="width:100%;margin-top:${d?'4px':'0'};justify-content:center;font-size:10px;padding:4px 6px" onclick="document.getElementById('mf-${n}').click()">${d?'Ã¢ÂÂº Re-upload':'+ Upload'}</button>
+      <button class="${d?'btn-upload':'btn-upload'}" style="width:100%;margin-top:${d?'4px':'0'};justify-content:center;font-size:10px;padding:4px 6px" onclick="document.getElementById('mf-${n}').click()">${d?'ÃÂ¢ÃÂÃÂº Re-upload':'+ Upload'}</button>
       <input type="file" id="mf-${n}" accept=".csv,.xlsx,.xls" onchange="handleFile(this,'monthly',${n})">
     </div>`;
   }).join('');
@@ -651,14 +651,14 @@ function setMonthType(n,partial){
   saveState(n);
 }
 
-// Ã¢ÂÂÃ¢ÂÂ FILE PARSING Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ FILE PARSING ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 const nameKeys=['Account Name','Account','AccountName','Customer','Client','Practice','Name'];
 const revKeys=['Annual Revenue','Revenue','Revenue to Date','Sales','Sales $','Amount','Total','Net Sales'];
 const stateKeys=['State','Province','ST','State/Province'];
 const repKeys=['Rep Name','Sales Rep','Rep','Representative'];
 
 function pick(obj,keys){for(const k of keys){if(obj[k]!==undefined&&obj[k]!=='')return obj[k];}return undefined;}
-function parseRev(v){if(typeof v==='number')return Math.abs(v);let s=String(v).trim();const neg=s.startsWith('(')&&s.endsWith(')');s=s.replace(/[()\$ÃÂ£Ã¢ÂÂ¬,\s]/g,'').replace(/^[A-Z]{2,3}/,'').replace(/[^0-9.\-]/g,'');const n=parseFloat(s)||0;return Math.abs(n);}
+function parseRev(v){if(typeof v==='number')return Math.abs(v);let s=String(v).trim();const neg=s.startsWith('(')&&s.endsWith(')');s=s.replace(/[()\$ÃÂÃÂ£ÃÂ¢ÃÂÃÂ¬,\s]/g,'').replace(/^[A-Z]{2,3}/,'').replace(/[^0-9.\-]/g,'');const n=parseFloat(s)||0;return Math.abs(n);}
 function normState(s){s=String(s).trim().toUpperCase().replace(/\.$/,'').replace(/\s+/g,' ');if(USA[s]||CAN[s])return s;for(const[k,v]of Object.entries(USA))if(v.toUpperCase()===s)return k;for(const[k,v]of Object.entries(CAN))if(v.toUpperCase()===s)return k;if(s==='NF')return 'NL';if(s==='QUE')return 'QC';return s;}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function fmtRev(n){if(n>=1000000)return '$'+(n/1000000).toFixed(1)+'M';if(n>=1000)return '$'+(n/1000).toFixed(0)+'K';return '$'+Math.round(n).toLocaleString();}
@@ -681,11 +681,11 @@ function handleFile(input,type,monthNum){
         const country=CAN[state]?'Canada':'USA';
         return{name,state,country,revenue};
       }).filter(r=>r.name&&r.revenue>0);
-      document.getElementById('blStatus').textContent='Ã¢ÂÂ '+baseline.length+' accounts loaded Ã¢ÂÂ '+file.name;
+      document.getElementById('blStatus').textContent='ÃÂ¢ÃÂÃÂ '+baseline.length+' accounts loaded ÃÂ¢ÃÂÃÂ '+file.name;
       document.getElementById('blStatus').className='file-status ok';
       document.getElementById('tsMonthly').textContent=now();
       rebuildRepFilter();buildMonthlyGrids();applyFilters();refreshDashboard();
-      saveState('baseline');showToast('Ã¢ÂÂ Baseline loaded Ã¢ÂÂ '+baseline.length+' accounts');
+      saveState('baseline');showToast('ÃÂ¢ÃÂÃÂ Baseline loaded ÃÂ¢ÃÂÃÂ '+baseline.length+' accounts');
 
     } else if(type==='reps'){
       repMap={};
@@ -694,10 +694,10 @@ function handleFile(input,type,monthNum){
         const rep=String(pick(r,repKeys)||'').trim();
         if(state&&rep)repMap[state]=rep;
       });
-      document.getElementById('repStatus').textContent='Ã¢ÂÂ '+Object.keys(repMap).length+' state assignments Ã¢ÂÂ '+file.name;
+      document.getElementById('repStatus').textContent='ÃÂ¢ÃÂÃÂ '+Object.keys(repMap).length+' state assignments ÃÂ¢ÃÂÃÂ '+file.name;
       document.getElementById('repStatus').className='file-status ok';
       rebuildRepFilter();applyFilters();
-      saveState('reps');showToast('Ã¢ÂÂ Rep assignments loaded Ã¢ÂÂ '+Object.keys(repMap).length+' states');
+      saveState('reps');showToast('ÃÂ¢ÃÂÃÂ Rep assignments loaded ÃÂ¢ÃÂÃÂ '+Object.keys(repMap).length+' states');
 
     } else if(type==='monthly'){
       const accounts=parseMonthlyRows(rows);
@@ -706,9 +706,9 @@ function handleFile(input,type,monthNum){
       const prevPartial=monthlyFiles[monthNum]?monthlyFiles[monthNum].partial:undefined;
       const isPartial=prevPartial!==undefined?prevPartial:(monthNum>=nowMonth);
       monthlyFiles[monthNum]={accounts,ts,partial:isPartial};
-      document.getElementById('tsMonthly').textContent=MONTHS[monthNum-1]+' Ã¢ÂÂ '+ts;
+      document.getElementById('tsMonthly').textContent=MONTHS[monthNum-1]+' ÃÂ¢ÃÂÃÂ '+ts;
       buildMonthlyGrids();applyFilters();refreshDashboard();
-      saveState(monthNum);showToast('Ã¢ÂÂ '+MONTHS[monthNum-1]+' loaded Ã¢ÂÂ '+accounts.length+' accounts');
+      saveState(monthNum);showToast('ÃÂ¢ÃÂÃÂ '+MONTHS[monthNum-1]+' loaded ÃÂ¢ÃÂÃÂ '+accounts.length+' accounts');
     }
     input.value='';
   });
@@ -741,7 +741,7 @@ function parseMonthlyRows(rows){
   }).filter(r=>r.name&&r.rev>0);
 }
 
-// Ã¢ÂÂÃ¢ÂÂ REP FILTER Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ REP FILTER ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function rebuildRepFilter(){
   const sel=document.getElementById('repSel');if(!sel)return;
   const cur=sel.value;
@@ -753,10 +753,10 @@ function rebuildRepFilter(){
 
 function getRepForAccount(acct){
   const state=acct.state;
-  return repMap[state]||'Ã¢ÂÂ';
+  return repMap[state]||'ÃÂ¢ÃÂÃÂ';
 }
 
-// Ã¢ÂÂÃ¢ÂÂ YTD HELPERS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ YTD HELPERS ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function buildYTDMap(){
   const map={};
   Object.values(monthlyFiles).forEach(mf=>mf.accounts.forEach(a=>{map[a.name]=(map[a.name]||0)+a.rev;}));
@@ -766,8 +766,8 @@ function getLoadedMonths(){return Object.keys(monthlyFiles).map(Number).sort((a,
 function getFinalMonths(){return getLoadedMonths().filter(n=>!monthlyFiles[n].partial);}
 function getMaxMonth(){const lm=getLoadedMonths();return lm.length?lm[lm.length-1]:new Date().getMonth()+1;}
 
-// Ã¢ÂÂÃ¢ÂÂ FILTER ENGINE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
-// ── FILTER ENGINE ─────────────────────────────────────────
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ FILTER ENGINE ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+// ââ FILTER ENGINE âââââââââââââââââââââââââââââââââââââââââ
 
 // Build the silence window from the gap filter selection.
 // N = number of final months selected.
@@ -869,7 +869,7 @@ function applyFilters2025(){
     return{...acct,rep,ytd:0,monthlyAvg,ytdRate:0,paceRatio:0,monthsGap:0,hasMTD:false,finalMonthCount:0,inBaseline:true};
   });
   const hdr=document.getElementById('atRiskTableHdr');
-  if(hdr)hdr.textContent='2025 accounts — no 2026 purchases';
+  if(hdr)hdr.textContent='2025 accounts â no 2026 purchases';
   sortResults();updateKPIs();currentPage=1;renderTable();refreshDashboard();
   updateCount();
 }
@@ -924,14 +924,14 @@ function applyFiltersAll(){
     return true;
   });
   const hdr=document.getElementById('atRiskTableHdr');
-  if(hdr)hdr.textContent='All accounts — silent month analysis';
+  if(hdr)hdr.textContent='All accounts â silent month analysis';
   sortResults();updateKPIs();currentPage=1;renderTable();refreshDashboard();
   updateCount();
 }
 
 function updateCount(){
   const countEl=document.getElementById('atRiskCount');
-  if(countEl){const n=filteredResults.length;countEl.textContent=n>0?'Ã¢ÂÂ '+n.toLocaleString()+' account'+(n===1?'':'s'):'';}
+  if(countEl){const n=filteredResults.length;countEl.textContent=n>0?'ÃÂ¢ÃÂÃÂ '+n.toLocaleString()+' account'+(n===1?'':'s'):'';}
 }
 
 function sortResults(){
@@ -946,7 +946,7 @@ function sortResults(){
   });
 }
 
-// Ã¢ÂÂÃ¢ÂÂ KPI UPDATE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ KPI UPDATE ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function updateKPIs(){
   const loadedMonths=getLoadedMonths();
   const atRisk=filteredResults.length;
@@ -966,15 +966,15 @@ function updateKPIs(){
   }
   document.getElementById('kAtRisk').textContent=atRisk.toLocaleString();
   document.getElementById('kRevenue').textContent=fmtRev(rev);
-  document.getElementById('kTotal').textContent=total>0?total.toLocaleString():'Ã¢ÂÂ';
-  document.getElementById('kActive').textContent=active>0?active.toLocaleString():'Ã¢ÂÂ';
+  document.getElementById('kTotal').textContent=total>0?total.toLocaleString():'ÃÂ¢ÃÂÃÂ';
+  document.getElementById('kActive').textContent=active>0?active.toLocaleString():'ÃÂ¢ÃÂÃÂ';
   document.getElementById('hdrAtRisk').textContent=atRisk+' at risk';
   document.getElementById('hdrTagged').textContent=tagged+' tagged';
   const pill=document.getElementById('dashAlertPill');
   if(pill){if(atRisk>0){pill.style.display='flex';document.getElementById('dashAlertTxt').textContent=atRisk+' account'+(atRisk===1?'':' are')+' at risk';}else{pill.style.display='none';}}
 }
 
-// Ã¢ÂÂÃ¢ÂÂ DASHBOARD CHARTS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ DASHBOARD CHARTS ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function refreshDashboard(){
   updateKPIs();buildMonthlyGrids();buildTop5();buildStateChart();buildPaceChart();buildDashTs();
 }
@@ -992,7 +992,7 @@ function buildTop5(){
     return `<div class="top5-card${tagged?' tagged':''}">
       <div class="top5-rank" style="color:${rankColors[i]}">#${i+1}</div>
       <div class="top5-name" title="${esc(r.name)}">${esc(r.name)}</div>
-      <div class="top5-meta">${r.state||'Ã¢ÂÂ'}${r.rep&&r.rep!=='Ã¢ÂÂ'?' ÃÂ· '+r.rep:''}</div>
+      <div class="top5-meta">${r.state||'ÃÂ¢ÃÂÃÂ'}${r.rep&&r.rep!=='ÃÂ¢ÃÂÃÂ'?' · '+r.rep:''}</div>
       <div class="top5-rev">${fmtRev(r.revenue)}</div>
       <div style="font-size:10px;color:${paceColor};font-weight:700;margin-top:2px">${paceLabel}</div>
       <div class="top5-bar-wrap"><div class="top5-bar" style="width:${(r.revenue/maxRev*100).toFixed(1)}%"></div></div>
@@ -1017,9 +1017,9 @@ function buildStateChart(){
 function buildPaceChart(){
   const buckets=[
     {label:'No orders (0%)',min:-1,max:0,color:'#dc2626'},
-    {label:'0Ã¢ÂÂ39% pace',min:0,max:40,color:'#ef4444'},
-    {label:'40Ã¢ÂÂ79% pace',min:40,max:80,color:'#d97706'},
-    {label:'80Ã¢ÂÂ99% pace',min:80,max:100,color:'#16a34a'},
+    {label:'0ÃÂ¢ÃÂÃÂ39% pace',min:0,max:40,color:'#ef4444'},
+    {label:'40ÃÂ¢ÃÂÃÂ79% pace',min:40,max:80,color:'#d97706'},
+    {label:'80ÃÂ¢ÃÂÃÂ99% pace',min:80,max:100,color:'#16a34a'},
     {label:'100%+ pace',min:100,max:99999,color:'#059669'},
   ];
   const counts=buckets.map(b=>{
@@ -1043,20 +1043,20 @@ function buildDashTs(){
   el.innerHTML='Loaded: <strong>'+loaded+'</strong>';
 }
 
-// Ã¢ÂÂÃ¢ÂÂ RENDER TABLE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ RENDER TABLE ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function renderTable(){
   const search=document.getElementById('tblSrch').value.toLowerCase();
   const source=filteredResults.filter(r=>!search||r.name.toLowerCase().includes(search)||r.state.toLowerCase().includes(search)||(r.rep&&r.rep.toLowerCase().includes(search)));
   const total=source.length;
   const countEl=document.getElementById('atRiskCount');
-  if(countEl){countEl.textContent=total>0?'Ã¢ÂÂ '+total.toLocaleString()+' account'+(total===1?'':'s'):'';}
+  if(countEl){countEl.textContent=total>0?'ÃÂ¢ÃÂÃÂ '+total.toLocaleString()+' account'+(total===1?'':'s'):'';}
   const pages=Math.max(1,Math.ceil(total/PAGE_SIZE));
   if(currentPage>pages)currentPage=1;
   const slice=source.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
   const tbody=document.getElementById('tblBody');
   const yearMode=document.getElementById('yearSel').value;
   if(!slice.length){
-    tbody.innerHTML='<tr><td colspan="11"><div class="empty"><div class="ei">'+(baseline.length||Object.keys(monthlyFiles).length?'Ã¢ÂÂ':'Ã°ÂÂÂ')+'</div><p>'+(baseline.length||Object.keys(monthlyFiles).length?'No accounts match current filters.':'Upload data in Data Sources to begin.')+'</p></div></td></tr>';
+    tbody.innerHTML='<tr><td colspan="11"><div class="empty"><div class="ei">'+(baseline.length||Object.keys(monthlyFiles).length?'ÃÂ¢ÃÂÃÂ':'ÃÂ°ÃÂÃÂÃÂ')+'</div><p>'+(baseline.length||Object.keys(monthlyFiles).length?'No accounts match current filters.':'Upload data in Data Sources to begin.')+'</p></div></td></tr>';
     document.getElementById('pagBar').style.display='none';return;
   }
   tbody.innerHTML=slice.map(r=>{
@@ -1064,7 +1064,7 @@ function renderTable(){
     const isCA=r.country==='Canada';
     const paceClass=r.paceRatio>=80?'good':r.paceRatio>=40?'warn':'bad';
     const fillClass='pace-fill '+(r.paceRatio>=80?'good':r.paceRatio>=40?'warn':'bad');
-    const pctLabel=r.ytd>0?Math.round(r.paceRatio)+'%':'Ã¢ÂÂ';
+    const pctLabel=r.ytd>0?Math.round(r.paceRatio)+'%':'ÃÂ¢ÃÂÃÂ';
     const barW=r.ytd>0?Math.min(r.paceRatio,100).toFixed(0):0;
     const mgClass=r.monthsGap>=6?'mc':r.monthsGap>=3?'mh':'mm';
     const sel=selectedRows.has(r.name.toLowerCase());
@@ -1072,32 +1072,32 @@ function renderTable(){
     return `<tr class="${tagged?'tagged':''}">
       <td><input type="checkbox" class="sel-check" ${sel?'checked':''} onchange="toggleRowSel('${esc(r.name.toLowerCase())}',this.checked)"></td>
       <td class="an">${esc(r.name)}${yearBadge}${tagged?'<span class="otag">Flagged</span>':''}</td>
-      <td style="font-weight:600;font-size:11px">${r.state||'Ã¢ÂÂ'}</td>
+      <td style="font-weight:600;font-size:11px">${r.state||'ÃÂ¢ÃÂÃÂ'}</td>
       <td><span class="cbadge ${isCA?'can':'usa'}">${isCA?'CAN':'USA'}</span></td>
-      <td style="font-size:11px;color:var(--text-muted)">${r.rep&&r.rep!=='Ã¢ÂÂ'?r.rep:'<span style="opacity:0.4">Ã¢ÂÂ</span>'}</td>
+      <td style="font-size:11px;color:var(--text-muted)">${r.rep&&r.rep!=='ÃÂ¢ÃÂÃÂ'?r.rep:'<span style="opacity:0.4">ÃÂ¢ÃÂÃÂ</span>'}</td>
       <td style="font-weight:600;font-family:var(--font-tight)">${fmtRev(r.revenue)}</td>
       <td style="color:var(--text-muted);font-size:11px">${fmtRev(r.monthlyAvg)}/mo</td>
       <td style="font-weight:600;font-family:var(--font-tight)">${r.ytd>0?fmtRev(r.ytd):'<span style="color:var(--red);font-size:11px">No orders</span>'}</td>
       <td><div class="pace-wrap"><div class="pace-bar"><div class="${fillClass}" style="width:${barW}%"></div></div><span class="ppct ${paceClass}">${pctLabel}</span></div></td>
       <td><span class="mb ${mgClass}">${r.monthsGap} mo</span></td>
       <td><div class="ra">
-        ${tagged?`<button class="ba ba-untag" onclick="untag('${esc(r.name)}')">Ã¢ÂÂ Unflag</button>`:`<button class="ba ba-tag" onclick="tag('${esc(r.name)}')">Flag</button>`}
+        ${tagged?`<button class="ba ba-untag" onclick="untag('${esc(r.name)}')">ÃÂ¢ÃÂÃÂ Unflag</button>`:`<button class="ba ba-tag" onclick="tag('${esc(r.name)}')">Flag</button>`}
       </div></td>
     </tr>`;
   }).join('');
   // Pagination
   document.getElementById('pagBar').style.display='flex';
-  document.getElementById('pagInfo').textContent='Showing '+((currentPage-1)*PAGE_SIZE+1)+'Ã¢ÂÂ'+Math.min(currentPage*PAGE_SIZE,total)+' of '+total;
+  document.getElementById('pagInfo').textContent='Showing '+((currentPage-1)*PAGE_SIZE+1)+'ÃÂ¢ÃÂÃÂ'+Math.min(currentPage*PAGE_SIZE,total)+' of '+total;
   const btns=document.getElementById('pagBtns');btns.innerHTML='';
   const addPB=(lbl,pg,act)=>{const b=document.createElement('button');b.className='pb'+(act?' act':'');b.textContent=lbl;if(pg!=null)b.onclick=()=>{currentPage=pg;renderTable();};btns.appendChild(b);};
-  addPB('Ã¢ÂÂ¹',currentPage>1?currentPage-1:null,false);
-  pgRange(currentPage,pages).forEach(p=>addPB(p==='...'?'Ã¢ÂÂ¦':p,p==='...'?null:p,p===currentPage));
-  addPB('Ã¢ÂÂº',currentPage<pages?currentPage+1:null,false);
+  addPB('ÃÂ¢ÃÂÃÂ¹',currentPage>1?currentPage-1:null,false);
+  pgRange(currentPage,pages).forEach(p=>addPB(p==='...'?'ÃÂ¢ÃÂÃÂ¦':p,p==='...'?null:p,p===currentPage));
+  addPB('ÃÂ¢ÃÂÃÂº',currentPage<pages?currentPage+1:null,false);
 }
 function pgRange(cur,total){if(total<=7)return Array.from({length:total},(_,i)=>i+1);if(cur<=4)return[1,2,3,4,5,'...',total];if(cur>=total-3)return[1,'...',total-4,total-3,total-2,total-1,total];return[1,'...',cur-1,cur,cur+1,'...',total];}
 function sc(col){const sel=document.getElementById('sortSel');const mp={revenue:['revenue_desc','revenue_asc'],name:['name_asc','name_asc'],state:['name_asc','name_asc'],pace:['pace_asc','pace_asc'],gap:['gap_desc','gap_desc']};if(!mp[col])return;sel.value=sel.value===mp[col][0]?mp[col][1]:mp[col][0];sortResults();renderTable();}
 
-// Ã¢ÂÂÃ¢ÂÂ TAGGING Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ TAGGING ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function tag(name){taggedAccounts.add(name.toLowerCase());updateKPIs();renderTable();saveState('tags');showToast('Flagged: '+name,'ot');}
 function untag(name){taggedAccounts.delete(name.toLowerCase());updateKPIs();renderTable();saveState('tags');showToast('Unflagged: '+name);}
 function tagAll(){
@@ -1107,7 +1107,7 @@ function tagAll(){
   updateKPIs();renderTable();showToast('Flagged '+vis.length+' accounts','ot');saveState('tags');
 }
 
-// Ã¢ÂÂÃ¢ÂÂ ROW SELECTION Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ ROW SELECTION ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function toggleRowSel(nl,checked){if(checked)selectedRows.add(nl);else selectedRows.delete(nl);}
 function toggleSelAll(checked){
   const search=document.getElementById('tblSrch').value.toLowerCase();
@@ -1117,7 +1117,7 @@ function toggleSelAll(checked){
   renderTable();
 }
 
-// Ã¢ÂÂÃ¢ÂÂ EXPORT Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ EXPORT ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function buildCSV(rows){
   const lm=getLoadedMonths();
   const monthLabel=lm.map(m=>MONTHS[m-1].slice(0,3)).join('+');
@@ -1132,22 +1132,22 @@ function downloadCSV(csv,suffix){
 }
 function exportCSV(){
   if(!filteredResults.length){showToast('No data to export.','err');return;}
-  downloadCSV(buildCSV(filteredResults),'all');showToast('Ã¢Â¬Â Exported '+filteredResults.length+' accounts');
+  downloadCSV(buildCSV(filteredResults),'all');showToast('ÃÂ¢ÃÂ¬ÃÂ Exported '+filteredResults.length+' accounts');
 }
 function exportSelected(){
   const sel=filteredResults.filter(r=>selectedRows.has(r.name.toLowerCase()));
   if(!sel.length){showToast('Select rows first using the checkboxes.','err');return;}
-  downloadCSV(buildCSV(sel),'selected');showToast('Ã¢Â¬Â Exported '+sel.length+' selected accounts');
+  downloadCSV(buildCSV(sel),'selected');showToast('ÃÂ¢ÃÂ¬ÃÂ Exported '+sel.length+' selected accounts');
 }
 
-// Ã¢ÂÂÃ¢ÂÂ TOAST Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ TOAST ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 let _toastTimer;
 function showToast(msg,type=''){
   const t=document.getElementById('toast');t.textContent=msg;t.className='toast show'+(type?' '+type:'');
   clearTimeout(_toastTimer);_toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
 }
 
-// Ã¢ÂÂÃ¢ÂÂ DEFAULT GAP FILTER Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ DEFAULT GAP FILTER ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function setDefaultGap(){
   const months=getLoadedMonths();
   if(!months.length)return;
@@ -1157,7 +1157,7 @@ function setDefaultGap(){
   if(opt)sel.value=String(n);
 }
 
-// Ã¢ÂÂÃ¢ÂÂ SUPABASE PERSISTENCE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ SUPABASE PERSISTENCE ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 const SB_URL='https://thxuehrhmtskwtboggsh.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRoeHVlaHJobXRza3d0Ym9nZ3NoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MTA0MTAsImV4cCI6MjA4ODk4NjQxMH0.Ehtz1UDbI3pV8QwAlVLtR_DS92B9twWj1tuFU-20wpE';
 
@@ -1221,12 +1221,12 @@ async function loadState(){
 
     if(Array.isArray(blRows)&&blRows.length){
       baseline=blRows.map(r=>({name:r.name,state:r.state,country:r.country||'USA',revenue:parseFloat(r.revenue)||0}));
-      if(meta.baseline_ts)document.getElementById('blStatus').textContent='Ã¢ÂÂ '+baseline.length+' accounts Ã¢ÂÂ loaded from shared DB';
+      if(meta.baseline_ts)document.getElementById('blStatus').textContent='ÃÂ¢ÃÂÃÂ '+baseline.length+' accounts ÃÂ¢ÃÂÃÂ loaded from shared DB';
       document.getElementById('blStatus').className='file-status ok';
     }
     if(Array.isArray(repRows)&&repRows.length){
       repMap={};repRows.forEach(r=>{repMap[r.state]=r.rep;});
-      document.getElementById('repStatus').textContent='Ã¢ÂÂ '+repRows.length+' state assignments';
+      document.getElementById('repStatus').textContent='ÃÂ¢ÃÂÃÂ '+repRows.length+' state assignments';
       document.getElementById('repStatus').className='file-status ok';
     }
     if(Array.isArray(monthRows)&&monthRows.length){
@@ -1242,20 +1242,20 @@ async function loadState(){
       });
       monthlyFiles=grouped;
       const loaded=Object.keys(monthlyFiles).map(Number).sort((a,b)=>b-a);
-      if(loaded.length)document.getElementById('tsMonthly').textContent=MONTHS[loaded[0]-1]+' Ã¢ÂÂ '+monthlyFiles[loaded[0]].ts;
+      if(loaded.length)document.getElementById('tsMonthly').textContent=MONTHS[loaded[0]-1]+' ÃÂ¢ÃÂÃÂ '+monthlyFiles[loaded[0]].ts;
     }
     if(Array.isArray(tagRows)&&tagRows.length)taggedAccounts=new Set(tagRows.map(r=>r.name));
 
     rebuildRepFilter();buildMonthlyGrids();applyFilters();refreshDashboard();
     const hasData=baseline.length||Object.keys(monthlyFiles).length;
-    showToast(hasData?'Ã¢ÂÂ Data loaded Ã¢ÂÂ shared across all stations':'Ã¢ÂÂ Connected Ã¢ÂÂ upload data to begin');
-  }catch(e){console.warn('NRT: loadState failed',e);showToast('Ã¢ÂÂ  Could not reach database.','err');}
+    showToast(hasData?'ÃÂ¢ÃÂÃÂ Data loaded ÃÂ¢ÃÂÃÂ shared across all stations':'ÃÂ¢ÃÂÃÂ Connected ÃÂ¢ÃÂÃÂ upload data to begin');
+  }catch(e){console.warn('NRT: loadState failed',e);showToast('ÃÂ¢ÃÂÃÂ  Could not reach database.','err');}
 }
 
 async function clearState(){
   if(currentRole!=='admin'){showToast('Clear Data is Admin only.','err');return;}
   if(!confirm('Clear ALL shared data for all stations? This cannot be undone.'))return;
-  showToast('ClearingÃ¢ÂÂ¦');
+  showToast('ClearingÃÂ¢ÃÂÃÂ¦');
   try{
     await Promise.all([
       sbFetch('nrt_baseline?id=gt.0',{method:'DELETE'}),
@@ -1268,12 +1268,12 @@ async function clearState(){
   baseline=[];repMap={};monthlyFiles={};taggedAccounts=new Set();selectedRows=new Set();
   document.getElementById('blStatus').textContent='No file loaded';document.getElementById('blStatus').className='file-status';
   document.getElementById('repStatus').textContent='No file loaded (optional)';document.getElementById('repStatus').className='file-status';
-  document.getElementById('tsMonthly').textContent='Ã¢ÂÂ';
+  document.getElementById('tsMonthly').textContent='ÃÂ¢ÃÂÃÂ';
   rebuildRepFilter();buildMonthlyGrids();applyFilters();refreshDashboard();
   showToast('All data cleared');
 }
 
-// Ã¢ÂÂÃ¢ÂÂ INIT Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ INIT ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 const _authReady=!!getSession();
 buildOpts('');buildMonthlyGrids();
 if(_authReady){loadState();}
